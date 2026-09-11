@@ -1,0 +1,822 @@
+<title>三十路会 佐賀・福岡</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Oswald:wght@300;500;600&display=swap">
+<style>
+/* ─────────────────────────────────────────────
+   三十路会 佐賀・福岡 しおり ver.02
+   単一テーマ（夜の湯屋）。全色をトークンで明示。
+   ───────────────────────────────────────────── */
+:root{
+  --ground:#0E0F12;        /* 暗いサウナ室／夜 */
+  --surface:#15171C;
+  --surface-2:#1C1F26;
+  --line:#2A2E37;
+  --line-soft:#21242B;
+  --text:#ECE8E1;          /* 温かみのあるオフホワイト */
+  --dim:#98A0AD;           /* 青に寄せたグレー */
+  --dimmer:#6B7280;
+  --ember:#E2622B;         /* 薪ストーブの熾火 ＝ 唯一のアクセント */
+  --ember-soft:#F08B5A;
+  --water:#4FB3C4;         /* 16℃の水風呂 */
+  --sakura:#E88BA6;        /* 夜桜 */
+
+  --disp:'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+  --body:'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+  --num:'Oswald', 'Zen Kaku Gothic New', sans-serif;
+
+  --gut:20px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--ground); color:var(--text);
+  font-family:var(--body); font-size:16px; line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation-duration:.001ms !important; transition-duration:.001ms !important}
+}
+img{max-width:100%}
+a{color:var(--ember-soft)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--ember); outline-offset:3px}
+
+.wrap{max-width:820px; margin-inline:auto; padding-inline:var(--gut)}
+.rule{height:1px; background:var(--line-soft); border:0; margin:0}
+
+/* ── 見出し ───────────────────────────── */
+.eyebrow{
+  font-family:var(--num); font-weight:500; font-size:.72rem;
+  letter-spacing:.24em; text-transform:uppercase; color:var(--ember);
+}
+h2{
+  font-family:var(--disp); font-weight:700; font-size:clamp(1.45rem,4.4vw,2rem);
+  line-height:1.4; margin:.35em 0 .6em; text-wrap:balance; color:var(--text);
+}
+h3{
+  font-family:var(--disp); font-weight:700; font-size:1.12rem;
+  margin:0 0 .5em; color:var(--text); text-wrap:balance;
+}
+p{margin:0 0 1em; max-width:62ch}
+.lead{color:var(--dim); font-size:1.02rem}
+section{padding-block:clamp(46px,8vw,76px)}
+
+/* ── 表紙 ─────────────────────────────── */
+.hero{position:relative; overflow:hidden; padding:0; isolation:isolate}
+.hero-img{
+  position:absolute; inset:0; width:100%; height:100%;
+  object-fit:cover; z-index:-2;
+}
+.hero::after{
+  content:""; position:absolute; inset:0; z-index:-1;
+  background:linear-gradient(180deg,rgba(14,15,18,.55) 0%,rgba(14,15,18,.32) 38%,rgba(14,15,18,.94) 100%);
+}
+.hero-inner{padding-block:clamp(56px,13vw,104px) clamp(30px,6vw,44px)}
+.kicker{
+  font-family:var(--num); font-size:.74rem; letter-spacing:.3em;
+  text-transform:uppercase; color:var(--ember-soft); margin:0 0 18px;
+}
+.hero h1{
+  font-family:var(--disp); font-weight:900;
+  font-size:clamp(2.5rem,10vw,4.4rem); line-height:1.12;
+  margin:0 0 6px; letter-spacing:.02em;
+  text-shadow:0 2px 30px rgba(0,0,0,.55);
+}
+.hero h1 .sub{display:block; font-size:.42em; font-weight:400; letter-spacing:.16em; margin-top:.5em; color:var(--text)}
+.hero-date{
+  font-family:var(--num); font-weight:300; font-size:clamp(1rem,3.2vw,1.32rem);
+  letter-spacing:.1em; color:var(--text); margin:22px 0 0;
+}
+.hero-meta{
+  margin-top:6px; color:var(--dim); font-size:.9rem; letter-spacing:.04em;
+}
+
+/* ── 三大目玉 ─────────────────────────── */
+.spot-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:26px}
+.spot{
+  position:relative; border-radius:3px; overflow:hidden;
+  background:var(--surface); min-height:190px; display:flex; align-items:flex-end;
+}
+.spot img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.spot span{
+  position:relative; z-index:1; display:block; width:100%;
+  padding:34px 12px 12px;
+  background:linear-gradient(180deg,rgba(14,15,18,0),rgba(14,15,18,.9));
+  font-family:var(--disp); font-weight:700; font-size:.98rem; line-height:1.4;
+}
+.spot span small{display:block; font-family:var(--body); font-weight:400; font-size:.72rem; color:var(--dim); margin-top:3px; line-height:1.5}
+@media (max-width:640px){
+  .spot-grid{grid-template-columns:1fr; gap:10px}
+  .spot{min-height:150px}
+}
+
+/* ── ルート図（HTMLで組む＝スマホで潰れない） ── */
+.route{list-style:none; margin:8px 0 0; padding:0}
+.route li{position:relative; padding-left:34px}
+.route li::before{content:""; position:absolute; left:7px; top:0; bottom:0; width:1px; background:var(--line)}
+.route li:first-child::before{top:13px}
+.route li:last-child::before{bottom:auto; height:13px}
+.route .dot{
+  position:absolute; left:2px; top:8px; width:11px; height:11px; border-radius:50%;
+  background:var(--ground); border:2px solid var(--dimmer);
+}
+.route .stop{padding-block:2px 6px}
+.route .stop.stay .dot{border-color:var(--ember); background:var(--ember); box-shadow:0 0 0 4px rgba(226,98,43,.16)}
+.route .place{font-family:var(--disp); font-weight:700; font-size:1.04rem; display:block}
+.route .place em{
+  font-style:normal; color:var(--ember); font-size:.76rem; font-family:var(--body);
+  font-weight:500; margin-left:10px; letter-spacing:.04em;
+}
+.route .leg{padding-block:0 14px; color:var(--dim); font-size:.85rem}
+.route .leg b{color:var(--text); font-weight:500}
+.route .leg .t{
+  display:block; font-family:var(--num); font-weight:500; color:var(--water);
+  letter-spacing:.05em; font-variant-numeric:tabular-nums; font-size:.92rem;
+}
+@media (max-width:520px){ .route .place{font-size:.98rem} }
+
+/* ── 日別 ─────────────────────────────── */
+.day-head{position:relative; overflow:hidden; border-radius:3px; margin-bottom:28px}
+.day-head img{display:block; width:100%; height:clamp(180px,34vw,290px); object-fit:cover}
+.day-head .cap{
+  position:absolute; inset:auto 0 0 0; padding:52px 20px 18px;
+  background:linear-gradient(180deg,rgba(14,15,18,0),rgba(14,15,18,.92));
+}
+.day-head .dno{
+  font-family:var(--num); font-weight:600; font-size:.78rem; letter-spacing:.26em;
+  color:var(--ember); display:block;
+}
+.day-head .dttl{font-family:var(--disp); font-weight:700; font-size:clamp(1.2rem,4vw,1.6rem); line-height:1.35; display:block; margin-top:2px}
+.day-head .dsub{color:var(--dim); font-size:.84rem; display:block; margin-top:4px}
+
+/* ── タイムライン ─────────────────────── */
+.tl{list-style:none; margin:0; padding:0}
+.tl li{display:grid; grid-template-columns:64px 1fr; gap:0 16px}
+.tl .t{
+  font-family:var(--num); font-weight:500; font-size:1.06rem;
+  color:var(--text); letter-spacing:.02em; padding-top:2px;
+  font-variant-numeric:tabular-nums; text-align:right;
+}
+.tl .c{
+  border-left:1px solid var(--line); padding:0 0 26px 22px; position:relative;
+}
+.tl li:last-child .c{border-left-color:transparent}
+.tl .c::before{
+  content:""; position:absolute; left:-5px; top:8px; width:9px; height:9px;
+  border-radius:50%; background:var(--ground); border:2px solid var(--dimmer);
+}
+.tl li.key .c::before{border-color:var(--ember); background:var(--ember); box-shadow:0 0 0 4px rgba(226,98,43,.16)}
+.tl li.key .t{color:var(--ember-soft)}
+.tl .h{font-family:var(--disp); font-weight:700; font-size:1.04rem; line-height:1.5; margin:0 0 3px}
+.tl .d{color:var(--dim); font-size:.87rem; line-height:1.75; margin:0; max-width:56ch}
+.tl .d b{color:var(--text); font-weight:500}
+.tl .tag{
+  display:inline-block; font-family:var(--num); font-size:.66rem; letter-spacing:.14em;
+  text-transform:uppercase; padding:2px 7px; border-radius:2px; margin-left:8px;
+  vertical-align:2px; border:1px solid var(--line); color:var(--dim);
+}
+.tl .tag.hot{border-color:rgba(226,98,43,.5); color:var(--ember-soft)}
+@media (max-width:520px){
+  .tl li{grid-template-columns:50px 1fr; gap:0 12px}
+  .tl .t{font-size:.96rem}
+  .tl .c{padding-left:18px}
+}
+
+/* ── 写真 ─────────────────────────────── */
+figure{margin:6px 0 26px}
+figure img{display:block; width:100%; height:auto; border-radius:3px}
+figcaption{color:var(--dimmer); font-size:.76rem; margin-top:7px; line-height:1.6}
+.duo{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:6px 0 26px}
+.duo figure{margin:0}
+.trio{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:6px 0 26px}
+.trio figure{margin:0}
+.trio img{aspect-ratio:1/1; object-fit:cover}
+@media (max-width:520px){ .trio{grid-template-columns:1fr 1fr} .trio figure:last-child{grid-column:1/-1} }
+.inline-photo{margin:12px 0 4px}
+.inline-photo img{border-radius:3px}
+
+/* ── パネル ───────────────────────────── */
+.panel{background:var(--surface); border:1px solid var(--line-soft); border-radius:3px; padding:22px 22px 18px}
+.panel + .panel{margin-top:14px}
+.panel h3{margin-bottom:.7em}
+.panel p:last-child{margin-bottom:0}
+
+/* ── 表 ───────────────────────────────── */
+.tblbox{overflow-x:auto}
+table{border-collapse:collapse; width:100%; font-size:.9rem; min-width:420px}
+th,td{text-align:left; padding:11px 12px; border-bottom:1px solid var(--line-soft); vertical-align:top}
+th{color:var(--dim); font-weight:500; font-size:.78rem; letter-spacing:.08em; white-space:nowrap}
+td.num{font-family:var(--num); font-weight:400; font-variant-numeric:tabular-nums; white-space:nowrap}
+tr.total td{border-bottom:0; border-top:1px solid var(--line); color:var(--text); font-weight:500; padding-top:14px}
+tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
+.done{color:var(--water); font-size:.78rem; letter-spacing:.06em}
+
+/* ── 地図 ─────────────────────────────── */
+.mapbox{overflow-x:auto; background:var(--surface); border:1px solid var(--line-soft); border-radius:3px; padding:14px}
+.mapbox svg{display:block; min-width:500px; width:100%; height:auto}
+.maprow{display:grid; grid-template-columns:1.35fr 1fr; gap:14px; align-items:start}
+@media (max-width:700px){ .maprow{grid-template-columns:1fr} }
+.legend{display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:12px; font-size:.76rem; color:var(--dim)}
+.legend span{display:inline-flex; align-items:center; gap:7px}
+.legend i{width:16px; height:2px; display:block; border-radius:2px}
+
+/* ── 数値の小箱（サウナの作法） ──────────── */
+.facts{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line-soft); border:1px solid var(--line-soft); border-radius:3px; overflow:hidden; margin:4px 0 22px}
+.fact{background:var(--surface); padding:16px 14px}
+.fact b{display:block; font-family:var(--num); font-weight:500; font-size:1.6rem; line-height:1.1; color:var(--water); font-variant-numeric:tabular-nums}
+.fact b.em{color:var(--ember-soft)}
+.fact span{display:block; color:var(--dim); font-size:.76rem; margin-top:5px; line-height:1.5}
+@media (max-width:520px){ .facts{grid-template-columns:1fr 1fr} .fact:last-child{grid-column:1/-1} }
+
+/* ── リスト ───────────────────────────── */
+.marks{list-style:none; margin:0; padding:0}
+.marks li{display:grid; grid-template-columns:22px 1fr; gap:0 10px; padding:9px 0; border-bottom:1px solid var(--line-soft); font-size:.92rem}
+.marks li:last-child{border-bottom:0}
+.marks li .n{font-family:var(--num); color:var(--ember); font-size:.9rem; padding-top:2px}
+.marks li p{margin:0}
+.marks li .sm{color:var(--dim); font-size:.82rem; display:block; margin-top:2px}
+
+/* ── メンバー ─────────────────────────── */
+.people{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--line-soft); border:1px solid var(--line-soft); border-radius:3px; overflow:hidden}
+.person{background:var(--surface); padding:15px 14px}
+.person b{display:block; font-family:var(--disp); font-weight:700; font-size:1.02rem}
+.person span{display:block; color:var(--dim); font-size:.78rem; margin-top:3px; line-height:1.6}
+.person .st{display:inline-block; margin-top:7px; font-family:var(--num); font-size:.64rem; letter-spacing:.14em; padding:2px 7px; border-radius:2px; border:1px solid var(--line); color:var(--dim)}
+.person .st.ok{border-color:rgba(79,179,196,.45); color:var(--water)}
+
+/* ── 連絡先 ───────────────────────────── */
+.calls{list-style:none; margin:0; padding:0; display:grid; gap:1px; background:var(--line-soft); border:1px solid var(--line-soft); border-radius:3px; overflow:hidden}
+.calls li{background:var(--surface); padding:13px 15px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:4px 14px; align-items:baseline}
+.calls b{font-weight:500; font-size:.94rem}
+.calls small{display:block; color:var(--dimmer); font-size:.74rem; font-weight:400}
+.calls a{font-family:var(--num); font-size:1rem; letter-spacing:.04em; text-decoration:none; white-space:nowrap}
+
+/* ── 未確定 ───────────────────────────── */
+.open li{border-left:2px solid var(--line); padding:2px 0 2px 14px; margin-bottom:14px; list-style:none}
+.open{margin:0; padding:0}
+.open b{display:block; font-weight:500; font-size:.95rem}
+.open span{color:var(--dim); font-size:.84rem}
+
+/* ── 締め ─────────────────────────────── */
+.closer{text-align:center; padding-block:clamp(60px,11vw,100px)}
+.closer .big{font-family:var(--disp); font-weight:700; font-size:clamp(1.35rem,5vw,2rem); line-height:1.6; margin:0 0 14px; max-width:none}
+.closer .sig{color:var(--dim); font-size:.85rem; margin:0}
+
+/* ── クレジット ───────────────────────── */
+.credits{color:var(--dimmer); font-size:.74rem; line-height:1.85}
+.credits h3{color:var(--dim); font-size:.88rem}
+.credits p{max-width:none}
+</style>
+
+<!-- ══════════════ 表紙 ══════════════ -->
+<header class="hero">
+  <img class="hero-img" src="img/m_rakuen_season_sakura_02.jpg" alt="池に映る御船山楽園の夜桜ライトアップ">
+  <div class="wrap hero-inner">
+    <p class="kicker">三十路会 ／ 第4回</p>
+    <h1>佐賀・福岡<span class="sub">武雄温泉 らかんの湯 ／ 博多・中洲</span></h1>
+    <p class="hero-date">2027.03.20 SAT — 03.22 MON</p>
+    <p class="hero-meta">2泊3日・3連休／幹事 髙山　しおり ver.02（2026年9月11日）</p>
+  </div>
+</header>
+
+<!-- ══════════════ 三大目玉 ══════════════ -->
+<section class="wrap" id="top">
+  <p class="eyebrow">この旅の三大目玉</p>
+  <h2>2023年に果たせなかったことを、<br>全部やりにいきます。</h2>
+  <p class="lead">前回は火災の影響で薪サウナに入れませんでした。2024年3月に復活しています。薬草スチームサウナも水風呂も増え、夕食はプレミアム会席へ。そして3月下旬は、九州最大級の夜桜ライトアップの期間です。</p>
+
+  <div class="spot-grid">
+    <div class="spot">
+      <img src="img/m_rakan_men_19.jpg" alt="らかんの湯 男湯の薪ストーブ">
+      <span>復活した薪サウナ<small>ロウリュは御船山の天然水。薪は武雄近郊の間伐材</small></span>
+    </div>
+    <div class="spot">
+      <img src="img/m_cuisine_diner_04.jpg" alt="佐賀牛A5等級のセイロ蒸し">
+      <span>佐賀牛A5＋楽園鍋<small>プレミアム会席にグレードアップ</small></span>
+    </div>
+    <div class="spot">
+      <img src="img/m_rakuen_season_sakura_04.jpg" alt="御船山楽園の夜桜ライトアップ">
+      <span>御船山楽園の夜桜<small>15万坪・約2,000本。宿泊者は入園無料</small></span>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════ まず、ここだけ ══════════════ -->
+<section class="wrap">
+  <p class="eyebrow">最初に、ここだけ読んでください</p>
+  <h2>集合は1回だけ。<br>3月20日 11:00・博多駅です。</h2>
+
+  <ul class="marks">
+    <li><span class="n">①</span><p><b>飛行機は各自で手配します。</b>同じ便に乗る必要はありません。空港での集合もありません。<span class="sm">東京組は各自の便で福岡空港へ。地下鉄空港線で博多駅まで2駅・約6分です。</span></p></li>
+    <li><span class="n">②</span><p><b>全体集合は3月20日 11:00、博多駅。</b>ここから昼食 → 武雄温泉へ移動します。<span class="sm">昼の便で来る人は武雄温泉駅13:55集合でも合流できます。</span></p></li>
+    <li><span class="n">③</span><p><b>1日だけの参加、途中合流、途中離脱、いずれも歓迎です。</b><span class="sm">宿と特急は幹事がまとめて取ります。飛行機だけ各自でお願いします。</span></p></li>
+  </ul>
+
+  <h3 style="margin-top:38px">参加メンバー</h3>
+  <div class="people">
+    <div class="person"><b>髙山</b><span>東京／幹事<br>全日程</span><span class="st ok">確定</span></div>
+    <div class="person"><b>浅野（MASA）</b><span>福岡・天神<br>全日程・現地参加</span><span class="st ok">確定</span></div>
+    <div class="person"><b>多田</b><span>東京<br>全日程の予定</span><span class="st">確認中</span></div>
+    <div class="person"><b>森本</b><span>東京<br>3/20-21（21日夕方に離脱）</span><span class="st">確認中</span></div>
+    <div class="person"><b>安</b><span>東京<br>全日程の予定</span><span class="st">確認中</span></div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════ 旅の全体像 ══════════════ -->
+<section class="wrap">
+  <p class="eyebrow">旅の全体像</p>
+  <h2>東京 → 博多 → 武雄温泉 → 天神 → 東京</h2>
+  <p class="lead">移動はすべて公共交通です。レンタカーはありません。特急と地下鉄の時刻を軸に組んでいます。</p>
+
+  <ol class="route">
+    <li class="stop"><span class="dot"></span><span class="place">東京・成田 <em>3/20(土)</em></span></li>
+    <li class="leg"><b>ジェットスター GK505</b>（幹事便）<span class="t">08:10 → 10:30 ／ 2時間20分</span></li>
+    <li class="stop"><span class="dot"></span><span class="place">福岡空港</span></li>
+    <li class="leg">地下鉄空港線<span class="t">2駅 ／ 約6分</span></li>
+    <li class="stop"><span class="dot"></span><span class="place">博多 <em>★全体集合 11:00</em></span></li>
+    <li class="leg"><b>特急リレーかもめ29号</b>・指定席<span class="t">12:54 → 13:55 ／ 約58分</span></li>
+    <li class="stop stay"><span class="dot"></span><span class="place">武雄温泉 <em>1泊目・御船山楽園ホテル</em></span></li>
+    <li class="leg"><b>特急リレーかもめ22号</b>（3/21 日）<span class="t">11:18 → 12:15 ／ 約57分</span></li>
+    <li class="stop"><span class="dot"></span><span class="place">博多</span></li>
+    <li class="leg">タクシー<span class="t">約10分</span></li>
+    <li class="stop stay"><span class="dot"></span><span class="place">天神 <em>2泊目・カンデオホテルズ</em></span></li>
+    <li class="leg">タクシーで長浜（約5分）→ 博多駅（約15分）→ 地下鉄（3/22 月）<span class="t">11:00 → 15:05</span></li>
+    <li class="stop"><span class="dot"></span><span class="place">福岡空港</span></li>
+    <li class="leg"><b>ジェットスター GK510</b>（幹事便）<span class="t">16:10 → 18:00 ／ 1時間50分</span></li>
+    <li class="stop"><span class="dot"></span><span class="place">東京・成田 <em>解散</em></span></li>
+  </ol>
+
+  <div class="tblbox" style="margin-top:40px">
+    <table>
+      <caption class="eyebrow" style="text-align:left; padding-bottom:12px">2023年7月の福岡旅行と、ここが違います</caption>
+      <tr><th>項目</th><th>2023年7月</th><th>2027年3月</th></tr>
+      <tr><td>薪サウナ</td><td>火災の影響で入れず</td><td><b>2024年3月に復活。今回入れます</b></td></tr>
+      <tr><td>薬草スチームサウナ</td><td>なし</td><td>新設</td></tr>
+      <tr><td>水風呂</td><td>従来のもののみ</td><td>屋外（深さ120cm）と地下の2か所</td></tr>
+      <tr><td>夕食</td><td>スタンダード会席</td><td>プレミアム会席</td></tr>
+      <tr><td>桜</td><td>夏のため無関係</td><td>花まつりの期間に当たる見込み</td></tr>
+      <tr><td>空港・集合</td><td>羽田に全員集合</td><td>成田・各自手配／博多駅に現地集合</td></tr>
+    </table>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════ DAY 1 ══════════════ -->
+<section class="wrap">
+  <div class="day-head">
+    <img src="img/m_rakan_men_17.jpg" alt="夜のらかんの湯 男湯露天風呂">
+    <div class="cap">
+      <span class="dno">Day 1 — 3月20日(土)</span>
+      <span class="dttl">東京 → 博多 → 武雄温泉</span>
+      <span class="dsub">集合、博多の海鮮、特急、そして薪サウナと佐賀牛。今回の山場は初日です。</span>
+    </div>
+  </div>
+
+  <ol class="tl">
+    <li><div class="t">7:00</div><div class="c">
+      <p class="h">成田空港 第3ターミナル集合</p>
+      <p class="d">幹事の便に合わせる人のみ。第3ターミナルは第2から連絡通路を<b>約600m・徒歩15分</b>ほど歩きます。ターミナル間連絡バスなら約6分。</p>
+      <figure class="inline-photo"><img src="img/w_narita_t3.jpg" alt="成田空港 第3ターミナルのフードコート" loading="lazy"><figcaption>成田 第3ターミナル。LCC専用で、フードコートを抜けた先が搭乗ゲート</figcaption></figure>
+    </div></li>
+    <li><div class="t">7:30</div><div class="c">
+      <p class="h">チェックイン・保安検査</p>
+      <p class="d">ジェットスター国内線は<b>カウンター30分前／保安検査25分前／搭乗口15分前</b>が締切です。</p>
+    </div></li>
+    <li><div class="t">8:10</div><div class="c"><p class="h">GK505 成田発</p></div></li>
+    <li><div class="t">10:30</div><div class="c">
+      <p class="h">福岡空港着</p>
+      <p class="d">受託手荷物を預けていると11:00の集合はかなり厳しくなります。<b>機内持ち込みだけにするのがおすすめ</b>です。遅れそうなら連絡を。</p>
+    </div></li>
+    <li><div class="t">10:45</div><div class="c"><p class="h">地下鉄空港線で博多駅へ</p><p class="d">2駅・約6分。福岡空港は「日本一、街に近い空港」です。</p></div></li>
+    <li class="key"><div class="t">11:00</div><div class="c">
+      <p class="h">★ 全体集合 ★ 博多駅<span class="tag hot">集合</span></p>
+      <p class="d">ここで浅野と合流します。空港での集合はありません。</p>
+      <div class="duo">
+        <figure><img src="img/w_fuk_airport.jpg" alt="福岡空港 国内線ターミナル" loading="lazy"><figcaption>福岡空港 国内線ターミナル</figcaption></figure>
+        <figure><img src="img/w_hakata_station.jpg" alt="博多駅" loading="lazy"><figcaption>博多駅。地下鉄で空港から2駅</figcaption></figure>
+      </div>
+    </div></li>
+    <li><div class="t">11:15</div><div class="c">
+      <p class="h">昼食：博多の海鮮料理 喜水丸 博多1番街店</p>
+      <p class="d">JR博多駅B1F／7:30-23:00（O.S.22:00）／45席・終日禁煙／予約不要。福岡魚市場から毎朝直送、豊後水道のサバを使った<b>ゴマサバ</b>が看板です。<br>ゴマサバ定食 2,190円／“極”海鮮丼 2,790円／“生”本マグロ丼定食 2,790円／上天ぷら定食 1,990円。<b>定食と丼定食は明太子が食べ放題</b>。</p>
+      <figure class="inline-photo"><img src="img/w_kaisendon.jpg" alt="海鮮丼" loading="lazy"><figcaption>改札からすぐの地下街なので、集合からの動線が短いのが利点</figcaption></figure>
+    </div></li>
+    <li><div class="t">12:15</div><div class="c"><p class="h">駅構内で車内用の飲み物・おやつを調達</p></div></li>
+    <li><div class="t">12:54</div><div class="c">
+      <p class="h">特急リレーかもめ29号で武雄温泉へ</p>
+      <p class="d">新幹線ではなく<b>在来線特急</b>です。所要約58分・指定席。きっぷは当日、博多駅で配ります。<br><span style="color:var(--dimmer)">※2027年3月のダイヤ改正で数分ずれる可能性があります（12月に答え合わせ）</span></p>
+      <figure class="inline-photo"><img src="img/w_relay_kamome.jpg" alt="787系 特急リレーかもめ" loading="lazy"><figcaption>787系「リレーかもめ」。黒い車体が特徴の、JR九州らしい車両です</figcaption></figure>
+    </div></li>
+    <li><div class="t">13:55</div><div class="c">
+      <p class="h">武雄温泉駅着 → 無料送迎バス</p>
+      <p class="d">ホテルまで約5分。<b>送迎は事前予約制</b>なので、幹事が前日までに電話しておきます。</p>
+      <div class="duo">
+        <figure><img src="img/w_takeo_station.jpg" alt="武雄温泉駅" loading="lazy"><figcaption>武雄温泉駅</figcaption></figure>
+        <figure><img src="img/w_takeo_gate.jpg" alt="武雄温泉 楼門" loading="lazy"><figcaption>武雄温泉のシンボル・楼門（国の重要文化財）</figcaption></figure>
+      </div>
+    </div></li>
+    <li><div class="t">14:30</div><div class="c">
+      <p class="h">御船山楽園ホテル チェックイン</p>
+      <p class="d">佐賀県武雄市武雄町大字武雄4100／0954-23-3131。公式サイト予約の特典で、通常15:00のところ<b>14:30から</b>入れます。</p>
+      <figure class="inline-photo"><img src="img/m_naigosho_01.jpg" alt="夜の別邸内庫所" loading="lazy"><figcaption>別邸内庫所。歴史ある建物のため、部屋までは階段です</figcaption></figure>
+    </div></li>
+    <li class="key"><div class="t">15:00</div><div class="c">
+      <p class="h">★ らかんの湯 第1ラウンド ★<span class="tag hot">今回の目玉</span></p>
+      <p class="d">約2.5時間。<b>薪サウナ → 薬草スチーム → 水風呂 → 外気浴</b>。2019〜22年に3年連続で全国1位（サウナシュラン）を獲り、殿堂入りした場所です。</p>
+      <figure class="inline-photo"><img src="img/m_rakan_men_03.jpg" alt="らかんの湯のサウナ室" loading="lazy"><figcaption>段状のベンチと間接照明。暗く、静かに整えます</figcaption></figure>
+      <div class="trio">
+        <figure><img src="img/m_rakan_men_19.jpg" alt="薪ストーブ" loading="lazy"><figcaption>薪ストーブ</figcaption></figure>
+        <figure><img src="img/m_rakan_men_06.jpg" alt="薬草スチームサウナ" loading="lazy"><figcaption>薬草スチーム</figcaption></figure>
+        <figure><img src="img/m_rakan_men_05.jpg" alt="ドライサウナ" loading="lazy"><figcaption>ドライサウナ</figcaption></figure>
+      </div>
+      <div class="duo">
+        <figure><img src="img/m_rakan_men_21.jpg" alt="屋外の水風呂" loading="lazy"><figcaption>屋外の水風呂。深さ120cm、16℃</figcaption></figure>
+        <figure><img src="img/m_rakan_men_14.jpg" alt="外気浴デッキ" loading="lazy"><figcaption>外気浴デッキ。3月下旬なら桜を見上げながら</figcaption></figure>
+      </div>
+    </div></li>
+    <li><div class="t">18:00</div><div class="c">
+      <p class="h">夕食：季節のおまかせ会席（プレミアム）</p>
+      <p class="d"><b>佐賀牛A5等級のセイロ蒸し</b>と、名物の<b>楽園鍋</b>。〆は「棚田米」「山椒カレー」「白石牛ハンバーガー」から選択（複数選択も可）。佐賀の地酒（鍋島・七田・東一など）と一緒に。</p>
+      <div class="duo">
+        <figure><img src="img/m_cuisine_diner_06.jpg" alt="楽園鍋" loading="lazy"><figcaption>名物の楽園鍋</figcaption></figure>
+        <figure><img src="img/m_cuisine_diner_01rn.jpg" alt="会席の全体" loading="lazy"><figcaption>〆は3種類から選べます</figcaption></figure>
+      </div>
+    </div></li>
+    <li class="key"><div class="t">19:45</div><div class="c">
+      <p class="h">御船山楽園 夜のライトアップ散策<span class="tag hot">宿泊者無料</span></p>
+      <p class="d">15万坪の庭園を、標高210mの断崖ごとライトアップします。九州最大級。2026年の花まつりは3/13〜4/5、夜間18:30〜22:00でした。<br><span style="color:var(--dimmer)">※桜の見頃は例年3月下旬〜4月上旬。3/20は咲き始め前後です。満開は期待せず、夜の庭園散歩くらいの気持ちで。ライトアップは開花状況に関係なく期間中毎晩あります。</span></p>
+      <figure class="inline-photo"><img src="img/m_rakuen_season_sakura_01.jpg" alt="御船山楽園の桜と断崖" loading="lazy"><figcaption>昼の御船山楽園。標高210mの断崖を借景にした15万坪の庭園です</figcaption></figure>
+      <figure class="inline-photo"><img src="img/m_rakuen_chayabar_02.jpg" alt="夜桜と茶屋" loading="lazy"><figcaption>池のほとりの茶屋。灯りと夜桜</figcaption></figure>
+    </div></li>
+    <li><div class="t">20:15</div><div class="c">
+      <p class="h">らかんの湯 第2ラウンド（夜の部）</p>
+      <p class="d">喫茶休憩室の<b>自家製塩プリン・かんころ餅・デトックスウォーターは無料</b>です。庭に面した畳の間で、整えたあとの時間もここで。</p>
+      <div class="duo">
+        <figure><img src="img/m_rakan_men_08.jpg" alt="喫茶休憩室" loading="lazy"><figcaption>喫茶休憩室。全面のガラス越しに御船山の森</figcaption></figure>
+        <figure><img src="img/m_rakan_men_11.jpg" alt="喫茶休憩室のドリンク" loading="lazy"><figcaption>デトックスウォーターと自家製の茶菓</figcaption></figure>
+      </div>
+    </div></li>
+    <li><div class="t">22:00</div><div class="c"><p class="h">就寝</p><p class="d">翌朝6:00から男女入替後のサウナに入れます。早寝推奨。</p></div></li>
+  </ol>
+
+  <!-- 武雄温泉マップ -->
+  <div class="maprow" style="margin-top:34px">
+    <div class="mapbox">
+      <svg viewBox="0 0 380 520" role="img" aria-label="武雄温泉駅から御船山楽園ホテルまでの地図">
+        <rect x="0" y="0" width="380" height="520" fill="#15171C"/>
+        <!-- 御船山 -->
+        <path d="M160 520 L215 405 L268 352 L322 420 L360 520 Z" fill="#1C1F26"/>
+        <path d="M215 405 L268 352 L300 392 L250 430 Z" fill="#22262E"/>
+        <text x="300" y="470" fill="#6B7280" font-family="Zen Kaku Gothic New,sans-serif" font-size="15" text-anchor="middle">御船山</text>
+        <text x="300" y="490" fill="#6B7280" font-family="Oswald,sans-serif" font-size="14" text-anchor="middle">210m</text>
+        <!-- 庭園 -->
+        <ellipse cx="215" cy="420" rx="72" ry="46" fill="none" stroke="#2A2E37" stroke-width="1" stroke-dasharray="3 4"/>
+        <!-- 送迎ルート -->
+        <path d="M133 148 C 150 230 175 310 232 408" fill="none" stroke="#E2622B" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="7 6"/>
+        <text x="152" y="292" fill="#F08B5A" font-family="Zen Kaku Gothic New,sans-serif" font-size="15">送迎バス</text>
+        <text x="152" y="312" fill="#F08B5A" font-family="Zen Kaku Gothic New,sans-serif" font-size="15">約5分・無料</text>
+        <!-- 駅 -->
+        <circle cx="133" cy="133" r="7" fill="#4FB3C4"/>
+        <text x="149" y="128" fill="#ECE8E1" font-family="Zen Kaku Gothic New,sans-serif" font-size="16" font-weight="500">武雄温泉駅</text>
+        <text x="149" y="148" fill="#98A0AD" font-family="Zen Kaku Gothic New,sans-serif" font-size="13">博多から特急58分</text>
+        <!-- 楼門 -->
+        <circle cx="175" cy="182" r="4.5" fill="#6B7280"/>
+        <text x="188" y="187" fill="#98A0AD" font-family="Zen Kaku Gothic New,sans-serif" font-size="13">楼門（重要文化財）</text>
+        <!-- ホテル -->
+        <circle cx="238" cy="425" r="8" fill="#E2622B"/>
+        <circle cx="238" cy="425" r="14" fill="none" stroke="#E2622B" stroke-width="1" opacity=".45"/>
+        <text x="224" y="415" fill="#ECE8E1" font-family="Zen Kaku Gothic New,sans-serif" font-size="16" font-weight="500" text-anchor="end">御船山楽園ホテル</text>
+        <text x="224" y="435" fill="#F08B5A" font-family="Zen Kaku Gothic New,sans-serif" font-size="13" text-anchor="end">らかんの湯</text>
+      </svg>
+    </div>
+    <div class="panel">
+      <h3>武雄温泉のいち</h3>
+      <p style="font-size:.88rem; color:var(--dim); margin-bottom:.8em">駅からホテルまでは約3km。歩ける距離ではないので、送迎バスかタクシーになります。</p>
+      <p style="font-size:.88rem; color:var(--dim); margin-bottom:.8em">送迎は<b style="color:var(--text)">事前予約制</b>で、宿泊日前日の21:00までに電話が必要です。<b style="color:var(--text)">チェックアウト後、駅まで送ってもらうこともできます</b>（確認済み）。</p>
+      <p style="font-size:.88rem; color:var(--dim); margin:0">駅前の楼門は国の重要文化財。時間があれば寄り道できます。</p>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════ らかんの湯の入り方 ══════════════ -->
+<section class="wrap">
+  <p class="eyebrow">予習</p>
+  <h2>らかんの湯の入り方</h2>
+  <p class="lead">宿泊者は無料で、しかも男女入替制なので両方に入れます。日帰りでは体験できない、泊まる人だけの特権です。</p>
+
+  <div class="facts">
+    <div class="fact"><b>16<span style="font-size:.55em">℃</span></b><span>水風呂の水温。武雄温泉の温泉水を冷却しています</span></div>
+    <div class="fact"><b>120<span style="font-size:.5em">cm</span></b><span>屋外の水風呂の深さ。地下にもう1か所あります</span></div>
+    <div class="fact"><b class="em">4:1:5</b><span>「ととのう」理想比率。サウナ6〜8分／水風呂1〜2分／休憩8〜10分</span></div>
+  </div>
+
+  <div class="tblbox">
+    <table>
+      <tr><th>利用時間（宿泊者）</th><td><b>宿泊日 15:00〜24:00</b>／<b>翌日 6:00〜10:30（男女入替）</b>　※利用無料</td></tr>
+      <tr><th>サウナ</th><td>薪サウナ（セルフロウリュ・御船山の天然水）／ドライサウナ（セルフロウリュ・嬉野産ほうじ茶）／薬草スチームサウナ（よもぎベース）</td></tr>
+      <tr><th>水風呂</th><td>屋外（深さ120cm）と地下の2か所</td></tr>
+      <tr><th>サウナハット</th><td><b>貸出・販売はありません。</b>使う人は持参してください</td></tr>
+      <tr><th>館内の移動</th><td>本館3階建・別邸内庫所2階建で<b>エレベーターはありません。</b>らかんの湯までも階段です</td></tr>
+    </table>
+  </div>
+
+  <div class="duo" style="margin-top:26px">
+    <figure><img src="img/m_rakan_men_18.jpg" alt="調合された薬草" loading="lazy"><figcaption>武雄で採れた自生の薬草。専門家がよもぎをベースに調合しています</figcaption></figure>
+    <figure><img src="img/m_rakan_men_15.jpg" alt="地下の水風呂" loading="lazy"><figcaption>地下の水風呂。幻想的な空間です</figcaption></figure>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════ DAY 2 ══════════════ -->
+<section class="wrap">
+  <div class="day-head">
+    <img src="img/w_nakasu.jpg" alt="中洲の夜景。那珂川に映るネオン">
+    <div class="cap">
+      <span class="dno">Day 2 — 3月21日(日・春分の日)</span>
+      <span class="dttl">武雄温泉 → 博多・天神</span>
+      <span class="dsub">朝の入替サウナから、ラーメン、自由行動、もつ鍋、屋台、締めのサウナへ。</span>
+    </div>
+  </div>
+
+  <ol class="tl">
+    <li class="key"><div class="t">6:00</div><div class="c">
+      <p class="h">★ 朝の入替サウナ ★<span class="tag hot">泊まる人だけの特権</span></p>
+      <p class="d">男女入替制なので、<b>前日と逆側のエリア</b>に入れます。6:00〜10:30。眠くても一度は起きる価値があります。</p>
+      <figure class="inline-photo"><img src="img/m_rakan_men_09.jpg" alt="屋上休憩所" loading="lazy"><figcaption>屋上休憩所。朝の光のなかで</figcaption></figure>
+    </div></li>
+    <li><div class="t">8:00</div><div class="c">
+      <p class="h">朝食（和朝食・一部バイキング）</p>
+      <p class="d">湯どうふ、有明海苔、出来立てモッツァレラのカプレーゼ、ローストポークのカッティングサービス、地元野菜のサラダバー。</p>
+      <figure class="inline-photo"><img src="img/m_cuisine_breakfast_01.jpg" alt="和朝食" loading="lazy"><figcaption>湯どうふと有明海苔が佐賀らしいところ</figcaption></figure>
+    </div></li>
+    <li><div class="t">9:00</div><div class="c">
+      <p class="h">御船山楽園を朝散歩、または追いサウナ（各自）</p>
+      <p class="d">園内を一周して<b>1時間〜1時間半</b>が目安。電動アシスト自転車の無料貸出もあります（フロントへ）。サウナは10:30まで入れます。</p>
+      <figure class="inline-photo"><img src="img/m_rakuen_season_mifuneyama.jpg" alt="御船山楽園の全景" loading="lazy"><figcaption>池越しに御船山を望む。8.2万㎡に約2,000本の桜</figcaption></figure>
+    </div></li>
+    <li><div class="t">10:30</div><div class="c"><p class="h">チェックアウト → 送迎バスで武雄温泉駅へ</p><p class="d">公式サイト予約の特典で、通常10:00のところ<b>10:30まで</b>。</p></div></li>
+    <li><div class="t">11:18</div><div class="c"><p class="h">特急リレーかもめ22号で博多へ</p><p class="d">森本もここまでは一緒です。<span style="color:var(--dimmer)">※時刻は現行ダイヤ。2027年3月改正で変わる可能性あり</span></p></div></li>
+    <li><div class="t">12:15</div><div class="c"><p class="h">博多駅着</p></div></li>
+    <li><div class="t">12:30</div><div class="c">
+      <p class="h">博多めん街道（博多デイトス内）で豚骨ラーメン</p>
+      <p class="d">細麺・豚骨・替玉。有名店が集まっています。<span style="color:var(--dimmer)">※日曜の営業状況は直前に確認します</span></p>
+      <figure class="inline-photo"><img src="img/w_ramen.jpg" alt="博多ラーメン" loading="lazy"><figcaption>まずは一杯。替玉は「かたで」</figcaption></figure>
+    </div></li>
+    <li><div class="t">13:30</div><div class="c"><p class="h">タクシーでカンデオホテルズ福岡天神へ、荷物を預ける</p><p class="d">福岡市中央区渡辺通5-14-5／092-738-5600。チェックインは15:00からですが、荷物は先に預かってもらえます。</p></div></li>
+    <li class="key"><div class="t">14:00</div><div class="c">
+      <p class="h">★ 自由行動タイム（〜17:00）★</p>
+      <p class="d">各自の好きなように。<b>①中洲エリアへ</b>（那珂川沿いを歩くだけでも雰囲気があります）／<b>②先にスカイスパで整う</b>（混む前を狙う手も）／<b>③天神を散策</b>（天ぷら「ひらお アクロス福岡店」もこのエリア）。</p>
+      <p class="d" style="color:var(--ember-soft)">※ 森本はこの時間帯のうちに離脱し、地下鉄で福岡空港へ向かいます（天神から約11分）。</p>
+      <figure class="inline-photo"><img src="img/w_tenjin.jpg" alt="天神の夜景" loading="lazy"><figcaption>天神。西鉄福岡（天神）駅前と警固公園</figcaption></figure>
+    </div></li>
+    <li><div class="t">17:15</div><div class="c">
+      <p class="h">チェックイン、スカイスパでひと整い</p>
+      <p class="d">最上階の露天風呂・サウナ・水風呂。天神の夜景を見ながら整えます。</p>
+      <figure class="inline-photo"><img src="img/c_tenjin.jpg" alt="カンデオホテルズ福岡天神のスカイスパ" loading="lazy"><figcaption>カンデオホテルズ福岡天神のスカイスパ。ホテル最上階です</figcaption></figure>
+    </div></li>
+    <li class="key"><div class="t">18:00</div><div class="c">
+      <p class="h">1次会：博多もつ鍋 やま中 赤坂店<span class="tag hot">要予約</span></p>
+      <p class="d">16:00-23:00（L.O.22:30）／定休日は年末年始のみ／092-716-2263。<b>みそ味もつ鍋の発祥店</b>で、ホテルのロビーのような落ち着いた空間。12歳以下は入店不可という大人仕様です。カンデオから徒歩10分強。</p>
+      <figure class="inline-photo"><img src="img/w_motsunabe.jpg" alt="博多もつ鍋" loading="lazy"><figcaption>にら・キャベツ・唐辛子。〆はちゃんぽん麺で</figcaption></figure>
+    </div></li>
+    <li><div class="t">20:00</div><div class="c">
+      <p class="h">2次会：中洲屋台巡り（那珂川沿い）</p>
+      <p class="d">ラーメン・おでん・焼きラーメン。隣の客との距離が近いのも屋台の醍醐味です。<b>現金のみの店があるので、少し多めに現金を持っておくこと。</b></p>
+      <figure class="inline-photo"><img src="img/w_yatai.jpg" alt="中洲の屋台" loading="lazy"><figcaption>那珂川沿いに屋台が並びます</figcaption></figure>
+    </div></li>
+    <li><div class="t">21:30</div><div class="c"><p class="h">スカイスパで〆のサウナ</p><p class="d">飲んだあとなので、水分を取ってから無理のない範囲で。</p></div></li>
+    <li><div class="t">22:30</div><div class="c"><p class="h">就寝</p></div></li>
+  </ol>
+</section>
+
+<!-- ══════════════ 福岡マップ ══════════════ -->
+<section class="wrap" style="padding-top:0">
+  <p class="eyebrow">Day 2 – 3 の行動範囲</p>
+  <h2>天神・中洲・博多・長浜</h2>
+  <p class="lead">歩けるのはカンデオ〜やま中〜中洲まで。長浜と博多駅の間はタクシーを使います。</p>
+
+  <div class="mapbox">
+    <svg viewBox="0 0 800 540" role="img" aria-label="福岡市街図。天神・中洲・博多駅・長浜鮮魚市場とDay2・Day3の移動経路">
+      <rect x="0" y="0" width="800" height="540" fill="#15171C"/>
+      <!-- 博多湾 -->
+      <path d="M0 0 H345 C275 72 180 98 100 122 L0 156 Z" fill="#191D26"/>
+      <text x="120" y="52" fill="#46505F" font-family="Zen Kaku Gothic New,sans-serif" font-size="16">博多湾</text>
+      <!-- 那珂川 -->
+      <path d="M425 540 C 402 420 372 300 332 62" fill="none" stroke="#1F2732" stroke-width="13" stroke-linecap="round"/>
+      <text x="352" y="120" fill="#46505F" font-family="Zen Kaku Gothic New,sans-serif" font-size="14" transform="rotate(78 352 120)">那珂川</text>
+
+      <!-- Day3 経路（桜色） -->
+      <path d="M372 417 L 126 140" fill="none" stroke="#E88BA6" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="8 7"/>
+      <path d="M126 140 C 330 180 520 270 683 346" fill="none" stroke="#E88BA6" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="8 7"/>
+      <!-- Day2 経路（熾火色） -->
+      <path d="M683 346 L 372 417" fill="none" stroke="#E2622B" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M372 417 L 168 357" fill="none" stroke="#E2622B" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M168 357 C 250 320 340 290 430 266" fill="none" stroke="#E2622B" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- 空港（水色） -->
+      <path d="M683 346 L 762 392" fill="none" stroke="#4FB3C4" stroke-width="2.5" stroke-linecap="round"/>
+      <polygon points="768,396 752,392 758,382" fill="#4FB3C4"/>
+
+      <!-- ノード -->
+      <circle cx="126" cy="140" r="7" fill="#E88BA6"/>
+      <text x="146" y="132" fill="#ECE8E1" font-family="Zen Kaku Gothic New,sans-serif" font-size="17" font-weight="500">長浜鮮魚市場</text>
+      <text x="146" y="152" fill="#98A0AD" font-family="Zen Kaku Gothic New,sans-serif" font-size="13">市場ずし 魚辰（Day3 昼）</text>
+
+      <circle cx="292" cy="309" r="6" fill="#6B7280"/>
+      <text x="306" y="303" fill="#98A0AD" font-family="Zen Kaku Gothic New,sans-serif" font-size="15">天神駅</text>
+
+      <circle cx="168" cy="357" r="7" fill="#E2622B"/>
+      <text x="156" y="352" fill="#ECE8E1" font-family="Zen Kaku Gothic New,sans-serif" font-size="16" font-weight="500" text-anchor="end">やま中 赤坂店</text>
+      <text x="156" y="372" fill="#98A0AD" font-family="Zen Kaku Gothic New,sans-serif" font-size="13" text-anchor="end">1次会 18:00</text>
+
+      <circle cx="372" cy="417" r="8" fill="#E2622B"/>
+      <circle cx="372" cy="417" r="14" fill="none" stroke="#E2622B" stroke-width="1" opacity=".45"/>
+      <text x="390" y="412" fill="#ECE8E1" font-family="Zen Kaku Gothic New,sans-serif" font-size="17" font-weight="500">カンデオホテルズ</text>
+      <text x="390" y="432" fill="#F08B5A" font-family="Zen Kaku Gothic New,sans-serif" font-size="13">2泊目・スカイスパ</text>
+
+      <circle cx="430" cy="266" r="7" fill="#E2622B"/>
+      <text x="446" y="261" fill="#ECE8E1" font-family="Zen Kaku Gothic New,sans-serif" font-size="16" font-weight="500">中洲・屋台</text>
+      <text x="446" y="281" fill="#98A0AD" font-family="Zen Kaku Gothic New,sans-serif" font-size="13">2次会 20:00</text>
+
+      <circle cx="683" cy="346" r="8" fill="#4FB3C4"/>
+      <text x="683" y="326" fill="#ECE8E1" font-family="Zen Kaku Gothic New,sans-serif" font-size="17" font-weight="500" text-anchor="middle">博多駅</text>
+      <text x="683" y="378" fill="#98A0AD" font-family="Zen Kaku Gothic New,sans-serif" font-size="13" text-anchor="middle">集合／お土産</text>
+      <text x="700" y="424" fill="#4FB3C4" font-family="Zen Kaku Gothic New,sans-serif" font-size="14">福岡空港へ</text>
+      <text x="700" y="443" fill="#98A0AD" font-family="Zen Kaku Gothic New,sans-serif" font-size="13">地下鉄 2駅・6分</text>
+
+      <!-- 所要時間 -->
+      <text x="520" y="392" fill="#F08B5A" font-family="Zen Kaku Gothic New,sans-serif" font-size="13">タクシー 約10分</text>
+      <text x="262" y="404" fill="#F08B5A" font-family="Zen Kaku Gothic New,sans-serif" font-size="13" text-anchor="middle">徒歩 10分強</text>
+      <text x="232" y="252" fill="#E88BA6" font-family="Zen Kaku Gothic New,sans-serif" font-size="13">タクシー 約5分</text>
+      <text x="430" y="222" fill="#E88BA6" font-family="Zen Kaku Gothic New,sans-serif" font-size="13">タクシー 約15分</text>
+    </svg>
+  </div>
+  <div class="legend">
+    <span><i style="background:#E2622B"></i>Day 2（3/21）の移動</span>
+    <span><i style="background:#E88BA6"></i>Day 3（3/22）の移動</span>
+    <span><i style="background:#4FB3C4"></i>空港へのアクセス</span>
+    <span style="color:var(--dimmer)">※位置関係の概略図です。縮尺は正確ではありません</span>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════ DAY 3 ══════════════ -->
+<section class="wrap">
+  <div class="day-head">
+    <img src="img/w_nagahama_market.jpg" alt="福岡市中央卸売市場（長浜鮮魚市場）">
+    <div class="cap">
+      <span class="dno">Day 3 — 3月22日(月・振替休日)</span>
+      <span class="dttl">天神 → 長浜 → 博多 → 成田</span>
+      <span class="dsub">朝ウナ、市場の寿司、お土産。ゆっくり目に締めて解散します。</span>
+    </div>
+  </div>
+
+  <ol class="tl">
+    <li><div class="t">7:00</div><div class="c"><p class="h">朝ウナ（希望者）</p><p class="d">最上階のスカイスパで。朝の天神を見下ろせます。</p></div></li>
+    <li><div class="t">8:00</div><div class="c"><p class="h">朝食ビュッフェ</p><p class="d">明るいスカイラウンジ。和洋60種類以上、地元の食材も日替わりで出ます。</p></div></li>
+    <li><div class="t">9:00</div><div class="c"><p class="h">各自フリー</p><p class="d">二度寝・追いサウナ・天神散歩。好きに過ごしてください。</p></div></li>
+    <li><div class="t">11:00</div><div class="c"><p class="h">チェックアウト → タクシーで長浜へ</p><p class="d">約5分。<span style="color:var(--dimmer)">※会員予約のため12:00まで延長も可能です</span></p></div></li>
+    <li class="key"><div class="t">11:15</div><div class="c">
+      <p class="h">市場ずし 魚辰 で海鮮ランチ</p>
+      <p class="d">長浜鮮魚市場に隣接する回転寿司。市場直送のネタが売りです。<span style="color:var(--dimmer)">※祝日の営業は直前に電話で確認します。休業時は同じ長浜の「うおざ」フードコート等に切替</span></p>
+      <figure class="inline-photo"><img src="img/w_sushi.jpg" alt="市場の回転寿司" loading="lazy"><figcaption>市場に隣接する回転寿司。最後にもう一度、九州の魚を</figcaption></figure>
+    </div></li>
+    <li><div class="t">12:45</div><div class="c"><p class="h">タクシーで博多駅へ</p><p class="d">約15分。</p></div></li>
+    <li><div class="t">13:00</div><div class="c">
+      <p class="h">お土産タイム＋カフェで休憩</p>
+      <p class="d">マイング（博多駅構内）で、<b>通りもん・明太子・努努鶏</b>など。荷物になるので買いすぎ注意。</p>
+      <figure class="inline-photo"><img src="img/w_mentaiko.jpg" alt="明太子" loading="lazy"><figcaption>明太子。冷蔵品は保冷剤の有無を確認して</figcaption></figure>
+    </div></li>
+    <li class="key"><div class="t">14:45</div><div class="c"><p class="h">★ 博多駅で浅野とお別れ ★</p><p class="d">東京組は地下鉄で福岡空港へ。2駅・約6分。</p></div></li>
+    <li><div class="t">15:05</div><div class="c"><p class="h">福岡空港着</p></div></li>
+    <li><div class="t">15:40</div><div class="c"><p class="h">保安検査を通過</p><p class="d">ジェットスター国内線は<b>出発25分前が締切</b>。15:45が目安です。</p></div></li>
+    <li><div class="t">16:10</div><div class="c"><p class="h">GK510 福岡発</p></div></li>
+    <li><div class="t">18:00</div><div class="c"><p class="h">成田着、解散</p><p class="d">おつかれさまでした。</p></div></li>
+  </ol>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════ 予約と見積 ══════════════ -->
+<section class="wrap">
+  <p class="eyebrow">実務</p>
+  <h2>予約の分担と、お金のこと</h2>
+
+  <h3 style="margin-top:26px">誰が何を取るか</h3>
+  <div class="tblbox">
+    <table>
+      <tr><th>対象</th><th>手配</th><th>状況</th></tr>
+      <tr><td>航空券</td><td>各自</td><td>髙山は予約済み。<b>便も座席もバラバラでOK</b></td></tr>
+      <tr><td>カンデオホテルズ福岡天神</td><td>髙山</td><td><span class="done">✓ 予約済（2室・朝食付・禁煙）</span></td></tr>
+      <tr><td>御船山楽園ホテル</td><td>髙山</td><td>2026年11月上旬に予約開始</td></tr>
+      <tr><td>特急リレーかもめ（往復）</td><td>髙山</td><td>2027年2月20日・21日 各10:00発売</td></tr>
+      <tr><td>やま中 赤坂店</td><td>髙山</td><td>2027年1月下旬に予約</td></tr>
+    </table>
+  </div>
+  <p style="font-size:.86rem; color:var(--dim); margin-top:14px">宿と特急は、別々に取ると部屋も席もバラバラになるため幹事がまとめます。飛行機だけは、取る日によって値段が変わり席も埋まるので各自でお願いします。<b style="color:var(--ember-soft)">ジェットスターは基本、キャンセルしても1円も戻りません。</b>確実に行けるようになってから取ってください。</p>
+
+  <h3 style="margin-top:38px">ざっくり概算（1人あたり）</h3>
+  <div class="tblbox">
+    <table>
+      <tr><th>項目</th><th style="text-align:right">金額</th><th>備考</th></tr>
+      <tr><td>航空券（往復）</td><td class="num" style="text-align:right">36,000〜48,000円</td><td>便・運賃タイプによる</td></tr>
+      <tr><td>らかんの湯（1泊2食・プレミアム会席）</td><td class="num" style="text-align:right">37,500〜45,500円</td><td>部屋タイプによる</td></tr>
+      <tr><td>カンデオホテルズ（1泊朝食付）</td><td class="num" style="text-align:right">24,200円</td><td><span class="done">確定</span>／宿泊税込・3等分</td></tr>
+      <tr><td>博多⇔武雄温泉 特急（往復）</td><td class="num" style="text-align:right">4,800〜7,700円</td><td>ネットきっぷなら4,800円</td></tr>
+      <tr><td>食費（海鮮・ラーメン・もつ鍋・屋台・寿司）</td><td class="num" style="text-align:right">約16,000円</td><td>自由行動費は別</td></tr>
+      <tr><td>タクシー・地下鉄・お土産</td><td class="num" style="text-align:right">約8,000円</td><td></td></tr>
+      <tr class="total"><td>合計</td><td class="num" style="text-align:right">約12.7万〜15.0万円</td><td>森本は1泊のため別途</td></tr>
+    </table>
+  </div>
+  <p style="font-size:.86rem; color:var(--dim); margin-top:14px">ホテル代と特急代は髙山が立て替え、旅行後に精算します（PayPay送金または銀行振込）。航空券は各自負担なので精算対象外。<b style="color:var(--text)">カンデオは2部屋に3人なので、精算は3等分</b>にさせてください。</p>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════ 持ち物 ══════════════ -->
+<section class="wrap">
+  <p class="eyebrow">準備</p>
+  <h2>持ち物と、注意すること</h2>
+
+  <div class="maprow" style="margin-top:24px">
+    <div class="panel">
+      <h3>持ち物</h3>
+      <ul class="marks">
+        <li><span class="n">①</span><p><b>サウナハット</b><span class="sm">らかんの湯は貸出も販売もありません。使う人は必ず持参を</span></p></li>
+        <li><span class="n">②</span><p><b>サウナ後の着替え</b><span class="sm">Tシャツの替えがあると楽です</span></p></li>
+        <li><span class="n">③</span><p><b>現金</b><span class="sm">屋台は現金のみの店があります</span></p></li>
+        <li><span class="n">④</span><p><b>羽織るもの1枚</b><span class="sm">3月下旬の九州は日中は過ごしやすいものの、朝晩は冷えます</span></p></li>
+        <li><span class="n">⑤</span><p><b>常備薬</b></p></li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>注意すること</h3>
+      <ul class="marks">
+        <li><span class="n">①</span><p><b>別邸内庫所は階段です</b><span class="sm">歴史ある建物のためエレベーターがありません。らかんの湯までも階段</span></p></li>
+        <li><span class="n">②</span><p><b>やま中 赤坂店は12歳以下入店不可</b><span class="sm">大人向けの店です</span></p></li>
+        <li><span class="n">③</span><p><b>雨天でも影響は小さい構成です</b><span class="sm">サウナと食事が中心。庭園散策だけが天候次第</span></p></li>
+        <li><span class="n">④</span><p><b>カンデオは宿泊税が現地で別途</b><span class="sm">1人200〜500円。現金またはカードで</span></p></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════ 連絡先 ══════════════ -->
+<section class="wrap">
+  <p class="eyebrow">緊急時</p>
+  <h2>連絡先</h2>
+  <ul class="calls">
+    <li><div><b>御船山楽園ホテル</b><small>佐賀県武雄市武雄町大字武雄4100／受付11:00-21:00</small></div><a href="tel:0954233131">0954-23-3131</a></li>
+    <li><div><b>カンデオホテルズ福岡天神</b><small>福岡市中央区渡辺通5-14-5</small></div><a href="tel:0927385600">092-738-5600</a></li>
+    <li><div><b>博多もつ鍋 やま中 赤坂店</b><small>16:00-23:00（L.O.22:30）</small></div><a href="tel:0927162263">092-716-2263</a></li>
+    <li><div><b>博多の海鮮料理 喜水丸 博多1番街店</b><small>7:30-23:00／JR博多駅B1F</small></div><a href="tel:0924094114">092-409-4114</a></li>
+  </ul>
+  <p style="font-size:.84rem; color:var(--dim); margin-top:16px">参加メンバーの連絡先はLINEグループで。当日、集合場所で迷ったら遠慮なく電話してください。</p>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════ 未確定 ══════════════ -->
+<section class="wrap">
+  <p class="eyebrow">正直なところ</p>
+  <h2>まだ決まっていないこと</h2>
+  <p class="lead">確定しだい版を上げて配り直します。現時点で宙に浮いているのは次の5つです。</p>
+  <ul class="open">
+    <li><b>多田・安の出欠</b><span>10月末までに固めたいところです。らかんの湯の部屋の取り方が変わるため</span></li>
+    <li><b>特急の時刻</b><span>12:54発・11:18発は現行ダイヤ。2027年3月の改正で数分ずれる可能性があります（改正概要は12月中旬発表）</span></li>
+    <li><b>花まつり2027の期間</b><span>2026年は3/13〜4/5、夜間18:30〜22:00。2027年はまだ未定で、気候次第で前後するとのこと</span></li>
+    <li><b>らかんの湯の部屋割り</b><span>5名が入る部屋は複数あると確認済み。ただし布団を敷くと手狭になるそうなので、当日の選択次第</span></li>
+    <li><b>Day2・Day3の店の営業</b><span>博多めん街道の日曜、市場ずし魚辰の祝日（3/22）。3月上旬に確認します</span></li>
+  </ul>
+</section>
+
+<!-- ══════════════ 締め ══════════════ -->
+<section class="wrap closer">
+  <p class="eyebrow">それでは</p>
+  <p class="big">3月20日 11:00、博多駅で。</p>
+  <p class="sig">幹事・髙山　／　しおり ver.02　2026年9月11日</p>
+</section>
+
+<hr class="rule">
+
+<!-- ══════════════ クレジット ══════════════ -->
+<section class="wrap credits">
+  <h3>写真について</h3>
+  <p>このしおりは参加メンバー5人に配る私的な文書です。写真の出所は次の2つです。</p>
+  <p><b>各施設の公式サイト</b>　らかんの湯・客室・料理・庭園＝御船山楽園ホテル／スカイスパ＝カンデオホテルズ福岡天神</p>
+  <p><b>ウィキメディア・コモンズ</b>（commons.wikimedia.org）<br>
+  Gate of Takeo Hot Spring.jpg（そらみみ／CC BY-SA 4.0）、Takeo-Onsen Station 20170429-1.jpg（そらみみ／CC BY-SA 4.0）、Hakata Station 20180306.jpg（そらみみ／CC BY-SA 4.0）、Night view of Kego Park and Nishitetsu-Fukuoka (Tenjin) Station.JPG（そらみみ／CC BY-SA 4.0）、Fukuoka City Central Fish Market.jpg（STA3816／CC BY-SA 4.0）、Fukuoka Airport Domestic Terminal.jpg（Nkmr844／CC BY-SA 4.0）、Series787-BM6 Relay-Kamome-12.jpg（MaedaAkihiko／CC BY-SA 4.0）、Motsunabe 002.jpg（徳永涼／CC BY-SA 3.0）、Nakasu (20141188736).jpg（Yoshikazu TAKADA／CC BY 2.0）、Nakasu Yatai Stalls (19979437930).jpg（Yoshikazu TAKADA／CC BY 2.0）、Narita Airport Terminal 3 - March 31 2019 - various.jpeg（Nesnad／CC BY 4.0）、ラーメン（博多一双）.jpg（くろふね／CC BY-SA 4.0）、Conveyor belt sushi at Mashiro Sushi.jpg（JIP／CC BY-SA 4.0）、大幸魚類 海鮮丼.jpg（KKPCW／CC BY-SA 4.0）、Fukuya mentaiko Fukkoku.JPG（Nissy-KITAQ／CC BY-SA 3.0）</p>
+  <p style="margin-top:18px">地図は位置関係を示す概略図で、縮尺は正確ではありません。料金・時刻は2026年9月11日時点の調査に基づきます。</p>
+</section>
