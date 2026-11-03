@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Oswald:wght@300;500;600&display=swap">
 <style>
 /* ─────────────────────────────────────────────
-   三十路会 佐賀・福岡 しおり ver.03
+   三十路会 佐賀・福岡 しおり ver.04
    単一テーマ（夜の湯屋）。全色をトークンで明示。
    ───────────────────────────────────────────── */
 :root{
@@ -150,6 +150,9 @@ section{padding-block:clamp(46px,8vw,76px)}
 }
 .day-head .dttl{font-family:var(--disp); font-weight:700; font-size:clamp(1.2rem,4vw,1.6rem); line-height:1.35; display:block; margin-top:2px}
 .day-head .dsub{color:var(--dim); font-size:.84rem; display:block; margin-top:4px}
+/* 白い器が多い写真は、文字の背面を濃くする */
+.day-head.bright img{object-position:50% 72%}
+.day-head.bright .cap{background:linear-gradient(180deg,rgba(14,15,18,0),rgba(14,15,18,.86) 42%,rgba(14,15,18,.96))}
 
 /* ── タイムライン ─────────────────────── */
 .tl{list-style:none; margin:0; padding:0}
@@ -190,6 +193,7 @@ figure img{display:block; width:100%; height:auto; border-radius:3px}
 figcaption{color:var(--dimmer); font-size:.76rem; margin-top:7px; line-height:1.6}
 .duo{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:6px 0 26px}
 .duo figure{margin:0}
+.duo.even img{aspect-ratio:5/3; object-fit:cover}
 .trio{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin:6px 0 26px}
 .trio figure{margin:0}
 .trio img{aspect-ratio:1/1; object-fit:cover}
@@ -216,6 +220,9 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
 /* ── 地図 ─────────────────────────────── */
 .mapbox{overflow-x:auto; background:var(--surface); border:1px solid var(--line-soft); border-radius:3px; padding:14px}
 .mapbox svg{display:block; min-width:500px; width:100%; height:auto}
+.maprow .mapbox svg{min-width:0}
+.maphint{display:none; margin:8px 0 0; font-size:.76rem; color:var(--dim)}
+@media (max-width:560px){ .maphint{display:block} }
 .maprow{display:grid; grid-template-columns:1.35fr 1fr; gap:14px; align-items:start}
 @media (max-width:700px){ .maprow{grid-template-columns:1fr} }
 .legend{display:flex; flex-wrap:wrap; gap:6px 18px; margin-top:12px; font-size:.76rem; color:var(--dim)}
@@ -280,7 +287,7 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
     <p class="kicker">三十路会 ／ 第4回</p>
     <h1>佐賀・福岡<span class="sub">武雄温泉 らかんの湯 ／ 博多・中洲</span></h1>
     <p class="hero-date">2027.03.20 SAT — 03.22 MON</p>
-    <p class="hero-meta">2泊3日・3連休／幹事 髙山　しおり ver.03（2026年11月3日）</p>
+    <p class="hero-meta">2泊3日・3連休／幹事 髙山　しおり ver.04（2026年11月3日）</p>
   </div>
 </header>
 
@@ -317,7 +324,7 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
     <li><span class="n">①</span><p><b>飛行機は各自で手配します。</b>同じ便に乗る必要はありません。空港での集合もありません。<span class="sm">東京組は各自の便で福岡空港へ。地下鉄空港線で博多駅まで2駅・約6分です。</span></p></li>
     <li><span class="n">②</span><p><b>全体集合は3月20日 11:00、博多駅。</b>ここから昼食 → 武雄温泉へ移動します。<span class="sm">昼の便で来る人は武雄温泉駅13:55集合でも合流できます。</span></p></li>
     <li><span class="n">③</span><p><b>1日だけの参加、途中合流、途中離脱、いずれも歓迎です。</b><span class="sm">宿と特急は幹事がまとめて取ります。飛行機だけ各自でお願いします。</span></p></li>
-    <li><span class="n">④</span><p><b>2泊目（3/21）を天神にするか呼子にするか、相談中です。</b><span class="sm">このしおりは天神の案で書いています。<a href="https://claude.ai/artifact/HQjtjGBCFGaNSD5BWTsLgi">2泊目の比較ページ</a>を見て、LINEで「天神」か「呼子」と返事をください。</span></p></li>
+    <li><span class="n">④</span><p><b>2泊目（3/21）は天神に決まりました。</b><span class="sm">呼子に泊まる案も出ましたが、呼子のイカは博多の店でも食べられるので、最終日の昼にイカの店を入れました。</span></p></li>
   </ul>
 
   <h3 style="margin-top:38px">参加メンバー</h3>
@@ -336,7 +343,7 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
 <section class="wrap">
   <p class="eyebrow">旅の全体像</p>
   <h2>東京 → 博多 → 武雄温泉 → 天神 → 東京</h2>
-  <p class="lead">移動はすべて公共交通です。レンタカーはありません。特急と地下鉄の時刻を軸に組んでいます。2泊目は天神の案で書いています（呼子の案と相談中）。</p>
+  <p class="lead">移動はすべて公共交通です。レンタカーはありません。特急と地下鉄の時刻を軸に組んでいます。</p>
 
   <ol class="route">
     <li class="stop"><span class="dot"></span><span class="place">東京・成田 <em>3/20(土)</em></span></li>
@@ -350,7 +357,7 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
     <li class="stop"><span class="dot"></span><span class="place">博多</span></li>
     <li class="leg">タクシー<span class="t">約10分</span></li>
     <li class="stop stay"><span class="dot"></span><span class="place">天神 <em>2泊目・カンデオホテルズ</em></span></li>
-    <li class="leg">タクシーで長浜（約5分）→ 博多駅（約15分）→ 地下鉄（3/22 月）<span class="t">11:00 → 15:05</span></li>
+    <li class="leg">タクシーで博多駅（約10分）→ 地下鉄（3/22 月）<span class="t">11:00 → 15:05</span></li>
     <li class="stop"><span class="dot"></span><span class="place">福岡空港</span></li>
     <li class="leg"><b>ジェットスター GK510</b>（幹事便）<span class="t">16:10 → 18:00 ／ 1時間50分</span></li>
     <li class="stop"><span class="dot"></span><span class="place">東京・成田 <em>解散</em></span></li>
@@ -558,7 +565,6 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
       <span class="dsub">朝の入替サウナから、ラーメン、自由行動、もつ鍋、屋台、締めのサウナへ。</span>
     </div>
   </div>
-  <p class="note"><b>2泊目は呼子に変える案を相談中です。</b>ここからは天神の案で書いています。呼子の案は<a href="https://claude.ai/artifact/HQjtjGBCFGaNSD5BWTsLgi">2泊目の比較ページ</a>にまとめました。</p>
 
   <ol class="tl">
     <li class="key"><div class="t">6:00</div><div class="c">
@@ -614,11 +620,11 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
 <!-- ══════════════ 福岡マップ ══════════════ -->
 <section class="wrap" style="padding-top:0">
   <p class="eyebrow">Day 2 – 3 の行動範囲</p>
-  <h2>天神・中洲・博多・長浜</h2>
-  <p class="lead">歩けるのはカンデオ〜やま中〜中洲まで。長浜と博多駅の間はタクシーを使います。</p>
+  <h2>天神・中洲・博多</h2>
+  <p class="lead">歩けるのはカンデオ〜やま中〜中洲まで。博多駅との行き来はタクシーを使います。</p>
 
   <div class="mapbox">
-    <svg viewBox="0 0 800 540" role="img" aria-label="福岡市街図。天神・中洲・博多駅・長浜鮮魚市場とDay2・Day3の移動経路">
+    <svg viewBox="0 0 800 540" role="img" aria-label="福岡市街図。天神・中洲・博多駅・河太郎とDay2・Day3の移動経路">
       <rect x="0" y="0" width="800" height="540" fill="#15171C"/>
       <!-- 博多湾 -->
       <path d="M0 0 H345 C275 72 180 98 100 122 L0 156 Z" fill="#191D26"/>
@@ -627,9 +633,8 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
       <path d="M425 540 C 402 420 372 300 332 62" fill="none" stroke="#1F2732" stroke-width="13" stroke-linecap="round"/>
       <text x="352" y="120" fill="#46505F" font-family="Zen Kaku Gothic New,sans-serif" font-size="14" transform="rotate(78 352 120)">那珂川</text>
 
-      <!-- Day3 経路（桜色） -->
-      <path d="M372 417 L 126 140" fill="none" stroke="#E88BA6" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="8 7"/>
-      <path d="M126 140 C 330 180 520 270 683 346" fill="none" stroke="#E88BA6" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="8 7"/>
+      <!-- Day3 経路（桜色）：カンデオ → 博多駅 -->
+      <path d="M372 417 C 380 500 600 470 683 346" fill="none" stroke="#E88BA6" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="8 7"/>
       <!-- Day2 経路（熾火色） -->
       <path d="M683 346 L 372 417" fill="none" stroke="#E2622B" stroke-width="2.5" stroke-linecap="round"/>
       <path d="M372 417 L 168 357" fill="none" stroke="#E2622B" stroke-width="2.5" stroke-linecap="round"/>
@@ -639,10 +644,6 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
       <polygon points="768,396 752,392 758,382" fill="#4FB3C4"/>
 
       <!-- ノード -->
-      <circle cx="126" cy="140" r="7" fill="#E88BA6"/>
-      <text x="146" y="132" fill="#ECE8E1" font-family="Zen Kaku Gothic New,sans-serif" font-size="17" font-weight="500">長浜鮮魚市場</text>
-      <text x="146" y="152" fill="#98A0AD" font-family="Zen Kaku Gothic New,sans-serif" font-size="13">市場ずし 魚辰（Day3 昼）</text>
-
       <circle cx="292" cy="309" r="6" fill="#6B7280"/>
       <text x="306" y="303" fill="#98A0AD" font-family="Zen Kaku Gothic New,sans-serif" font-size="15">天神駅</text>
 
@@ -659,19 +660,22 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
       <text x="446" y="261" fill="#ECE8E1" font-family="Zen Kaku Gothic New,sans-serif" font-size="16" font-weight="500">中洲・屋台</text>
       <text x="446" y="281" fill="#98A0AD" font-family="Zen Kaku Gothic New,sans-serif" font-size="13">2次会 20:00</text>
 
+      <circle cx="650" cy="300" r="6" fill="#E88BA6"/>
+      <text x="638" y="296" fill="#ECE8E1" font-family="Zen Kaku Gothic New,sans-serif" font-size="15" font-weight="500" text-anchor="end">河太郎 博多駅店</text>
+      <text x="638" y="314" fill="#98A0AD" font-family="Zen Kaku Gothic New,sans-serif" font-size="13" text-anchor="end">Day3 昼・イカ</text>
+
       <circle cx="683" cy="346" r="8" fill="#4FB3C4"/>
-      <text x="683" y="326" fill="#ECE8E1" font-family="Zen Kaku Gothic New,sans-serif" font-size="17" font-weight="500" text-anchor="middle">博多駅</text>
-      <text x="683" y="378" fill="#98A0AD" font-family="Zen Kaku Gothic New,sans-serif" font-size="13" text-anchor="middle">集合／お土産</text>
+      <text x="683" y="328" fill="#ECE8E1" font-family="Zen Kaku Gothic New,sans-serif" font-size="17" font-weight="500" text-anchor="middle">博多駅</text>
       <text x="700" y="424" fill="#4FB3C4" font-family="Zen Kaku Gothic New,sans-serif" font-size="14">福岡空港へ</text>
       <text x="700" y="443" fill="#98A0AD" font-family="Zen Kaku Gothic New,sans-serif" font-size="13">地下鉄 2駅・6分</text>
 
       <!-- 所要時間 -->
       <text x="520" y="392" fill="#F08B5A" font-family="Zen Kaku Gothic New,sans-serif" font-size="13">タクシー 約10分</text>
       <text x="262" y="404" fill="#F08B5A" font-family="Zen Kaku Gothic New,sans-serif" font-size="13" text-anchor="middle">徒歩 10分強</text>
-      <text x="232" y="252" fill="#E88BA6" font-family="Zen Kaku Gothic New,sans-serif" font-size="13">タクシー 約5分</text>
-      <text x="430" y="222" fill="#E88BA6" font-family="Zen Kaku Gothic New,sans-serif" font-size="13">タクシー 約15分</text>
+      <text x="505" y="488" fill="#E88BA6" font-family="Zen Kaku Gothic New,sans-serif" font-size="13" text-anchor="middle">タクシー 約10分</text>
     </svg>
   </div>
+  <p class="maphint">→ 地図は横にスクロールできます（右側に博多駅・河太郎）</p>
   <div class="legend">
     <span><i style="background:#E2622B"></i>Day 2（3/21）の移動</span>
     <span><i style="background:#E88BA6"></i>Day 3（3/22）の移動</span>
@@ -684,12 +688,12 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
 
 <!-- ══════════════ DAY 3 ══════════════ -->
 <section class="wrap">
-  <div class="day-head">
-    <img src="img/w_nagahama_market.jpg" alt="福岡市中央卸売市場（長浜鮮魚市場）">
+  <div class="day-head bright">
+    <img src="img/k_key.jpg" alt="河太郎のイカ活き造り定食">
     <div class="cap">
       <span class="dno">Day 3 — 3月22日(月・振替休日)</span>
-      <span class="dttl">天神 → 長浜 → 博多 → 成田</span>
-      <span class="dsub">朝ウナ、市場の寿司、お土産。ゆっくり目に締めて解散します。</span>
+      <span class="dttl">天神 → 博多 → 成田</span>
+      <span class="dsub">朝ウナ、呼子のイカ、お土産。ゆっくり目に締めて解散します。</span>
     </div>
   </div>
 
@@ -697,14 +701,16 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
     <li><div class="t">7:00</div><div class="c"><p class="h">朝ウナ（希望者）</p><p class="d">最上階のスカイスパで。朝の天神を見下ろせます。</p></div></li>
     <li><div class="t">8:00</div><div class="c"><p class="h">朝食ビュッフェ</p><p class="d">明るいスカイラウンジ。和洋60種類以上、地元の食材も日替わりで出ます。</p></div></li>
     <li><div class="t">9:00</div><div class="c"><p class="h">各自フリー</p><p class="d">二度寝・追いサウナ・天神散歩。好きに過ごしてください。</p></div></li>
-    <li><div class="t">11:00</div><div class="c"><p class="h">チェックアウト → タクシーで長浜へ</p><p class="d">約5分。<span style="color:var(--dimmer)">※会員予約のため12:00まで延長も可能です</span></p></div></li>
-    <li class="key"><div class="t">11:15</div><div class="c">
-      <p class="h">市場ずし 魚辰 で海鮮ランチ</p>
-      <p class="d">長浜鮮魚市場に隣接する回転寿司。市場直送のネタが売りです。<span style="color:var(--dimmer)">※祝日の営業は直前に電話で確認します。休業時は同じ長浜の「うおざ」フードコート等に切替</span></p>
-      <figure class="inline-photo"><img src="img/w_sushi.jpg" alt="市場の回転寿司" loading="lazy"><figcaption>市場に隣接する回転寿司。最後にもう一度、九州の魚を</figcaption></figure>
+    <li><div class="t">11:00</div><div class="c"><p class="h">チェックアウト → タクシーで博多駅へ</p><p class="d">約10分。博多駅で荷物をコインロッカーに預けます。</p></div></li>
+    <li class="key"><div class="t">12:00</div><div class="c">
+      <p class="h">★ 呼子のイカの活き造り：河太郎 博多駅店 ★<span class="tag hot">予定</span></p>
+      <p class="d">博多口から徒歩約3分（JRJP博多ビル1階）。呼子直送の活きイカを店の生簀で泳がせていて、生簀を眺められるカウンター席もあります。<b>イカ活き造り定食 4,180円</b>。昼の予約は12:00入店・90分です。<span style="color:var(--dimmer)">※浅野におすすめの店を聞いているので、変わる可能性があります</span></p>
+      <div class="duo even">
+        <figure><img src="img/k_ikesu.jpg" alt="生簀を泳ぐイカ" loading="lazy"><figcaption>生簀を泳ぐイカ</figcaption></figure>
+        <figure><img src="img/k_floor_cal_img1.jpg" alt="生簀を囲むカウンター席" loading="lazy"><figcaption>生簀を囲むカウンター席</figcaption></figure>
+      </div>
     </div></li>
-    <li><div class="t">12:45</div><div class="c"><p class="h">タクシーで博多駅へ</p><p class="d">約15分。</p></div></li>
-    <li><div class="t">13:00</div><div class="c">
+    <li><div class="t">13:30</div><div class="c">
       <p class="h">お土産タイム＋カフェで休憩</p>
       <p class="d">マイング（博多駅構内）で、<b>通りもん・明太子・努努鶏</b>など。帰りの便で荷物を預けられるかは各自の運賃で確認してください（幹事の運賃は受託手荷物20kg込み）。</p>
       <figure class="inline-photo"><img src="img/w_mentaiko.jpg" alt="明太子" loading="lazy"><figcaption>明太子。冷蔵品は保冷剤の有無を確認して</figcaption></figure>
@@ -733,6 +739,7 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
       <tr><td>御船山楽園ホテル</td><td>髙山</td><td><span class="done">✓ 予約済（紅梅・大人5名・すき焼き会席・現地払い）</span></td></tr>
       <tr><td>特急リレーかもめ（往復）</td><td>髙山</td><td>2027年2月20日・21日 各10:00発売</td></tr>
       <tr><td>やま中 赤坂店</td><td>髙山</td><td>2027年1月下旬に予約</td></tr>
+      <tr><td>河太郎 博多駅店（3/22昼）</td><td>髙山</td><td>予約予定（浅野のおすすめ次第で変更あり）</td></tr>
     </table>
   </div>
   <p style="font-size:.86rem; color:var(--dim); margin-top:14px">宿と特急は、別々に取ると部屋も席もバラバラになるため幹事がまとめます。飛行機だけは、取る日によって値段が変わり席も埋まるので各自でお願いします。<b style="color:var(--ember-soft)">ジェットスターは基本、キャンセルしても1円も戻りません。</b>確実に行けるようになってから取ってください。</p>
@@ -745,9 +752,9 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
       <tr><td>らかんの湯（1泊2食・すき焼き会席）</td><td class="num" style="text-align:right">42,050円</td><td><span class="done">確定</span>／5名1室・現地払い</td></tr>
       <tr><td>カンデオホテルズ（1泊朝食付）</td><td class="num" style="text-align:right">24,200円</td><td><span class="done">確定</span>／宿泊税込・3等分</td></tr>
       <tr><td>博多⇔武雄温泉 特急（往復）</td><td class="num" style="text-align:right">4,800〜7,700円</td><td>ネットきっぷなら4,800円</td></tr>
-      <tr><td>食費（海鮮・ラーメン・もつ鍋・屋台・寿司）</td><td class="num" style="text-align:right">約16,000円</td><td>自由行動費は別</td></tr>
+      <tr><td>食費（海鮮・ラーメン・もつ鍋・屋台・イカ）</td><td class="num" style="text-align:right">約17,000円</td><td>自由行動費は別</td></tr>
       <tr><td>タクシー・地下鉄・お土産</td><td class="num" style="text-align:right">約8,000円</td><td></td></tr>
-      <tr class="total"><td>合計</td><td class="num" style="text-align:right">約13.1万〜14.6万円</td><td>森本は1泊のため別途</td></tr>
+      <tr class="total"><td>合計</td><td class="num" style="text-align:right">約13.2万〜14.7万円</td><td>森本は1泊のため別途</td></tr>
     </table>
   </div>
   <p style="font-size:.86rem; color:var(--dim); margin-top:14px">ホテル代と特急代は髙山が立て替え、旅行後に精算します（PayPay送金または銀行振込）。航空券は各自負担なので精算対象外。<b style="color:var(--text)">カンデオは2部屋に3人なので、精算は3等分</b>にさせてください。</p>
@@ -794,6 +801,7 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
     <li><div><b>カンデオホテルズ福岡天神</b><small>福岡市中央区渡辺通5-14-5</small></div><a href="tel:0927385600">092-738-5600</a></li>
     <li><div><b>博多もつ鍋 やま中 赤坂店</b><small>16:00-23:00（L.O.22:30）</small></div><a href="tel:0927162263">092-716-2263</a></li>
     <li><div><b>博多の海鮮料理 喜水丸 博多1番街店</b><small>7:30-23:00／JR博多駅B1F</small></div><a href="tel:0924094114">092-409-4114</a></li>
+    <li><div><b>河太郎 博多駅店</b><small>昼12:00-13:30／博多口から徒歩約3分</small></div><a href="tel:0922609442">092-260-9442</a></li>
   </ul>
   <p style="font-size:.84rem; color:var(--dim); margin-top:16px">参加メンバーの連絡先はLINEグループで。当日、集合場所で迷ったら遠慮なく電話してください。</p>
 </section>
@@ -806,11 +814,11 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
   <h2>まだ決まっていないこと</h2>
   <p class="lead">確定しだい版を上げて配り直します。現時点で決まっていないのは次の5つです。</p>
   <ul class="open">
-    <li><b>2泊目を天神にするか呼子にするか</b><span><a href="https://claude.ai/artifact/HQjtjGBCFGaNSD5BWTsLgi">比較ページ</a>を見て、LINEで「天神」か「呼子」と返事をください。11月中に決めます</span></li>
     <li><b>多田の出欠</b><span>らかんの湯は多田も来られるように5名で予約しています。来られない場合は4名に変更します（キャンセル料は3日前からなので、3/16までに）</span></li>
     <li><b>特急の時刻</b><span>12:54発・11:18発は現行ダイヤ。2027年3月の改正で数分ずれる可能性があります（改正概要は12月中旬発表）</span></li>
     <li><b>花まつり2027の期間</b><span>2026年は3/13〜4/5、夜間18:30〜22:00。2027年はまだ未定で、気候次第で前後するとのこと</span></li>
-    <li><b>Day2・Day3の店の営業</b><span>博多めん街道の日曜、市場ずし魚辰の祝日（3/22）。3月上旬に確認します</span></li>
+    <li><b>3/22の昼の店</b><span>河太郎 博多駅店を予定しています。浅野におすすめの店を聞いているので、変わる可能性があります</span></li>
+    <li><b>博多めん街道の日曜の営業</b><span>3/21の昼に行く予定です。3月上旬に確認します</span></li>
   </ul>
 </section>
 
@@ -818,7 +826,7 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
 <section class="wrap closer">
   <p class="eyebrow">それでは</p>
   <p class="big">3月20日 11:00、博多駅で。</p>
-  <p class="sig">幹事・髙山　／　しおり ver.03　2026年11月3日</p>
+  <p class="sig">幹事・髙山　／　しおり ver.04　2026年11月3日</p>
 </section>
 
 <hr class="rule">
@@ -827,8 +835,8 @@ tr.total td.num{color:var(--ember-soft); font-size:1.05rem}
 <section class="wrap credits">
   <h3>写真について</h3>
   <p>このしおりは参加メンバー5人に配る私的な文書です。写真の出所は次の2つです。</p>
-  <p><b>各施設の公式サイト</b>　らかんの湯・客室・料理・庭園＝御船山楽園ホテル／スカイスパ＝カンデオホテルズ福岡天神</p>
+  <p><b>各施設の公式サイト</b>　らかんの湯・客室・料理・庭園＝御船山楽園ホテル／スカイスパ＝カンデオホテルズ福岡天神／イカの活き造り・店内＝河太郎 博多駅店</p>
   <p><b>ウィキメディア・コモンズ</b>（commons.wikimedia.org）<br>
-  Gate of Takeo Hot Spring.jpg（そらみみ／CC BY-SA 4.0）、Takeo-Onsen Station 20170429-1.jpg（そらみみ／CC BY-SA 4.0）、Hakata Station 20180306.jpg（そらみみ／CC BY-SA 4.0）、Night view of Kego Park and Nishitetsu-Fukuoka (Tenjin) Station.JPG（そらみみ／CC BY-SA 4.0）、Fukuoka City Central Fish Market.jpg（STA3816／CC BY-SA 4.0）、Fukuoka Airport Domestic Terminal.jpg（Nkmr844／CC BY-SA 4.0）、Series787-BM6 Relay-Kamome-12.jpg（MaedaAkihiko／CC BY-SA 4.0）、Motsunabe 002.jpg（徳永涼／CC BY-SA 3.0）、Nakasu (20141188736).jpg（Yoshikazu TAKADA／CC BY 2.0）、Nakasu Yatai Stalls (19979437930).jpg（Yoshikazu TAKADA／CC BY 2.0）、Narita Airport Terminal 3 - March 31 2019 - various.jpeg（Nesnad／CC BY 4.0）、ラーメン（博多一双）.jpg（くろふね／CC BY-SA 4.0）、Conveyor belt sushi at Mashiro Sushi.jpg（JIP／CC BY-SA 4.0）、大幸魚類 海鮮丼.jpg（KKPCW／CC BY-SA 4.0）、Fukuya mentaiko Fukkoku.JPG（Nissy-KITAQ／CC BY-SA 3.0）</p>
+  Gate of Takeo Hot Spring.jpg（そらみみ／CC BY-SA 4.0）、Takeo-Onsen Station 20170429-1.jpg（そらみみ／CC BY-SA 4.0）、Hakata Station 20180306.jpg（そらみみ／CC BY-SA 4.0）、Night view of Kego Park and Nishitetsu-Fukuoka (Tenjin) Station.JPG（そらみみ／CC BY-SA 4.0）、Fukuoka Airport Domestic Terminal.jpg（Nkmr844／CC BY-SA 4.0）、Series787-BM6 Relay-Kamome-12.jpg（MaedaAkihiko／CC BY-SA 4.0）、Motsunabe 002.jpg（徳永涼／CC BY-SA 3.0）、Nakasu (20141188736).jpg（Yoshikazu TAKADA／CC BY 2.0）、Nakasu Yatai Stalls (19979437930).jpg（Yoshikazu TAKADA／CC BY 2.0）、Narita Airport Terminal 3 - March 31 2019 - various.jpeg（Nesnad／CC BY 4.0）、ラーメン（博多一双）.jpg（くろふね／CC BY-SA 4.0）、大幸魚類 海鮮丼.jpg（KKPCW／CC BY-SA 4.0）、Fukuya mentaiko Fukkoku.JPG（Nissy-KITAQ／CC BY-SA 3.0）</p>
   <p style="margin-top:18px">地図は位置関係を示す概略図で、縮尺は正確ではありません。料金・時刻は2026年11月3日時点の調査に基づきます。</p>
 </section>
