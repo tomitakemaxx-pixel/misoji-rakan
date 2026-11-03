@@ -1,0 +1,442 @@
+<title>2泊目、天神か呼子か</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Oswald:wght@400;500;600&display=swap">
+<style>
+/* 武雄温泉で道が二手に分かれる。左＝天神（熾火の夜）、右＝呼子（玄界灘）。しおりと同じ夜の単一テーマ */
+:root{
+  color-scheme: dark;
+  --ground:#0D0F12;
+  --surface:#15181D;
+  --surface-2:#1B1F25;
+  --line:#2A2F38;
+  --line-soft:#20242B;
+  --text:#ECE8E1;
+  --dim:#9AA2AE;
+  --dimmer:#6E7581;
+  --tenjin:#E2622B;
+  --tenjin-soft:#F08B5A;
+  --yobuko:#4AB0C6;
+  --yobuko-soft:#86CFDF;
+  --sea-deep:#2C7C90;
+  --sea-light:#A9DDE8;
+
+  --disp:'Zen Old Mincho','Hiragino Mincho ProN','Yu Mincho',serif;
+  --body:'Zen Kaku Gothic New','Hiragino Sans','Yu Gothic',sans-serif;
+  --num:'Oswald','Zen Kaku Gothic New',sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.8;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--yobuko-soft)}
+a:focus-visible{outline:2px solid var(--yobuko);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.wrap{max-width:980px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:clamp(44px,8vw,72px)}
+.rule{height:1px;background:var(--line-soft);border:0;margin:0}
+.eyebrow{font-family:var(--num);font-weight:500;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase;color:var(--dim);margin:0 0 6px}
+h2{font-family:var(--disp);font-weight:700;font-size:clamp(1.4rem,4.2vw,1.95rem);line-height:1.45;margin:0 0 .6em;text-wrap:balance}
+h3{font-family:var(--disp);font-weight:700;font-size:1.08rem;margin:0 0 .5em;text-wrap:balance}
+p{margin:0 0 1em;max-width:64ch}
+.lead{color:var(--dim)}
+.t{color:var(--tenjin)} .y{color:var(--yobuko)}
+
+/* ── 表紙：左右に割れた夜と海 ── */
+.hero-head{padding-block:clamp(40px,8vw,72px) clamp(24px,4vw,36px)}
+.kicker{font-family:var(--num);font-size:.74rem;letter-spacing:.28em;text-transform:uppercase;color:var(--dim);margin:0 0 14px}
+h1{font-family:var(--disp);font-weight:900;font-size:clamp(2rem,7.4vw,3.6rem);line-height:1.25;margin:0 0 18px;letter-spacing:.01em;text-wrap:balance}
+.hero-head .lead{font-size:1rem;margin:0}
+.halves{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--ground)}
+.half{position:relative;margin:0;aspect-ratio:4/3;overflow:hidden;max-width:100%}
+.half img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.half.yobuko img{object-position:62% 50%}
+.half::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,15,18,0) 40%,rgba(13,15,18,.88) 100%)}
+.half figcaption{position:absolute;left:0;right:0;bottom:0;z-index:1;padding:14px 18px 16px}
+.half.tenjin figcaption{padding-left:max(18px,env(safe-area-inset-left,0px))}
+.half.yobuko figcaption{padding-right:max(18px,env(safe-area-inset-right,0px));text-align:right}
+.half b{display:block;font-family:var(--disp);font-weight:900;font-size:clamp(1.5rem,5vw,2.4rem);line-height:1.2}
+.half.tenjin b{color:var(--tenjin-soft)} .half.yobuko b{color:var(--yobuko-soft)}
+.half span{display:block;font-size:.82rem;color:var(--text);margin-top:2px}
+.half small{display:block;font-family:var(--num);font-size:.68rem;letter-spacing:.2em;color:var(--dim);margin-bottom:2px}
+@media (max-width:620px){.half{aspect-ratio:3/4}}
+
+/* ── 分かれ道 ── */
+.fork{display:grid;gap:14px}
+.fork .root{border:1px solid var(--line);border-radius:3px;padding:14px 16px;background:var(--surface)}
+.fork .branches{display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative}
+.fork .br{border-radius:3px;padding:14px 16px;background:var(--surface);min-width:0}
+.fork .br.a{border:1px solid rgba(226,98,43,.55)} .fork .br.b{border:1px solid rgba(74,176,198,.55)}
+.node-date{font-family:var(--num);font-size:.8rem;letter-spacing:.06em;color:var(--dim)}
+.node-place{font-family:var(--disp);font-weight:700;font-size:1.08rem;display:block;margin:2px 0}
+.node-sub{font-size:.82rem;color:var(--dim);display:block}
+.chip{display:inline-block;font-size:.7rem;letter-spacing:.06em;padding:1px 8px;border-radius:2px;margin-left:6px;vertical-align:2px;border:1px solid var(--line);color:var(--dim)}
+.chip.ok{border-color:rgba(169,221,232,.45);color:var(--sea-light)}
+.chip.no{border-color:rgba(240,139,90,.5);color:var(--tenjin-soft)}
+.br .then{display:block;margin-top:8px;font-size:.82rem;color:var(--dim);border-top:1px solid var(--line-soft);padding-top:8px}
+@media (max-width:620px){.fork .branches{grid-template-columns:1fr}}
+
+/* ── 両案 ── */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,40px);align-items:start}
+.plan{min-width:0}
+.plan-letter{font-family:var(--num);font-weight:500;font-size:.78rem;letter-spacing:.24em;display:block}
+.plan.a .plan-letter{color:var(--tenjin)} .plan.b .plan-letter{color:var(--yobuko)}
+.plan h2{margin:.1em 0 .2em;font-size:clamp(1.7rem,5vw,2.3rem)}
+.plan.a h2{color:var(--tenjin-soft)} .plan.b h2{color:var(--yobuko-soft)}
+.tagline{color:var(--dim);margin-bottom:18px}
+.mosaic{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:22px}
+.mosaic figure{margin:0;min-width:0}
+.mosaic figure.wide{grid-column:1/-1}
+.mosaic img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px}
+.mosaic figure.wide img{aspect-ratio:16/8}
+.mosaic figcaption{font-size:.78rem;line-height:1.55;color:var(--dim);margin-top:5px}
+.mosaic figcaption b{color:var(--text);font-weight:500;display:block}
+.days h3{font-size:.95rem;margin:18px 0 8px;font-family:var(--body);font-weight:500;color:var(--dim);letter-spacing:.04em}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:50px 1fr;gap:0 12px;padding:5px 0;border-bottom:1px solid var(--line-soft);font-size:.88rem;line-height:1.6}
+.tl li:last-child{border-bottom:0}
+.tl .tm{font-family:var(--num);font-variant-numeric:tabular-nums;text-align:right;color:var(--dim)}
+.plan.a .tl li.key .tm{color:var(--tenjin-soft)} .plan.b .tl li.key .tm{color:var(--yobuko-soft)}
+.tl li.key .what{color:var(--text);font-weight:500}
+.tl .what{color:var(--dim);min-width:0}
+.tl li.same .what{color:var(--dimmer)}
+.aside{font-size:.84rem;color:var(--dim);background:var(--surface);border:1px solid var(--line-soft);border-radius:3px;padding:12px 14px;margin-top:18px}
+.aside b{color:var(--text);font-weight:500}
+@media (max-width:760px){.plans{grid-template-columns:1fr}}
+
+/* ── イカの季節 ── */
+.season{background:linear-gradient(180deg,rgba(44,124,144,.12),rgba(44,124,144,0))}
+.quote{font-family:var(--disp);font-size:1.05rem;line-height:1.9;border-left:2px solid var(--yobuko);padding:2px 0 2px 16px;margin:6px 0 22px;color:var(--text);max-width:60ch}
+.quote cite{display:block;font-family:var(--body);font-style:normal;font-size:.76rem;color:var(--dim);margin-top:6px}
+.chartbox{background:var(--surface);border:1px solid var(--line-soft);border-radius:3px;padding:14px 12px 8px;overflow-x:auto}
+.chartbox svg{display:block;width:100%;height:auto;min-width:340px}
+.ch-grid{stroke:var(--line);stroke-width:1}
+.ch-mon{fill:var(--dim);font-family:var(--num);font-size:12px}
+.ch-name{fill:var(--text);font-family:var(--body);font-size:13.5px;font-weight:500}
+.ch-per{fill:var(--dim);font-family:var(--body);font-size:11.5px}
+.ch-aori{fill:var(--sea-deep)} .ch-kou{fill:var(--yobuko)} .ch-yari{fill:var(--sea-light)}
+.ch-band{fill:var(--yobuko);opacity:.2}
+.ch-day{stroke:var(--text);stroke-width:1.5}
+.ch-daytx{fill:var(--text);font-family:var(--num);font-size:13px;font-weight:500}
+.ch-note{fill:var(--yobuko-soft);font-family:var(--body);font-size:12px}
+.squid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-soft);border:1px solid var(--line-soft);border-radius:3px;overflow:hidden;margin-top:16px}
+.squid3 div{background:var(--surface);padding:12px 14px;min-width:0}
+.squid3 b{display:block;font-family:var(--disp);font-size:1rem}
+.squid3 span{display:block;font-size:.78rem;color:var(--dim);line-height:1.6;margin-top:3px}
+@media (max-width:620px){.squid3{grid-template-columns:1fr}}
+.season .caveat{font-size:.86rem;color:var(--dim);margin-top:16px}
+
+/* ── 比較表 ── */
+.tblbox{overflow-x:auto;border:1px solid var(--line-soft);border-radius:3px}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:.88rem}
+th,td{padding:11px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line-soft)}
+thead th{font-family:var(--disp);font-size:1rem;background:var(--surface)}
+thead th.ca{color:var(--tenjin-soft)} thead th.cb{color:var(--yobuko-soft)}
+tbody th{color:var(--dim);font-weight:500;font-size:.8rem;white-space:nowrap;background:var(--surface);width:8.5em}
+tbody tr:last-child th,tbody tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums}
+@media (max-width:620px){
+  .tblbox{overflow-x:visible}
+  table{min-width:0;display:block}
+  thead,tbody{display:block}
+  tr{display:grid;grid-template-columns:1fr 1fr}
+  thead tr th:first-child{display:none}
+  tbody th{grid-column:1/-1;width:auto;white-space:normal;padding:10px 12px 2px;border-bottom:0;font-size:.76rem}
+  tbody td{min-width:0;background:var(--surface);padding-top:4px}
+  tbody td+td{border-left:1px solid var(--line-soft)}
+}
+
+/* ── 気になるところ ── */
+.cons{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.cons div{min-width:0;background:var(--surface);border-radius:3px;padding:16px 18px;border:1px solid var(--line-soft)}
+.cons h3{margin-bottom:.6em}
+.cons .a h3{color:var(--tenjin-soft)} .cons .b h3{color:var(--yobuko-soft)}
+.cons ul{margin:0;padding-left:1.1em;font-size:.88rem;color:var(--dim)}
+.cons li{margin:0 0 6px}
+@media (max-width:620px){.cons{grid-template-columns:1fr}}
+
+/* ── 決め手と返事 ── */
+.keys{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.keys li{display:grid;grid-template-columns:34px 1fr;gap:0 12px;align-items:start}
+.keys .n{font-family:var(--num);font-weight:500;font-size:1.4rem;line-height:1.3;color:var(--text)}
+.keys b{display:block;font-family:var(--disp);font-size:1.05rem}
+.keys span{display:block;color:var(--dim);font-size:.88rem;margin-top:2px}
+.reply{text-align:center;padding-block:clamp(56px,10vw,90px)}
+.reply .big{font-family:var(--disp);font-weight:700;font-size:clamp(1.3rem,4.6vw,1.9rem);line-height:1.7;margin:0 auto 12px;max-width:none}
+.reply .big .t,.reply .big .y{font-weight:900}
+.reply p{margin-inline:auto}
+.reply .sig{color:var(--dim);font-size:.84rem}
+.credits{font-size:.74rem;color:var(--dimmer);line-height:1.85}
+.credits p{max-width:none}
+</style>
+
+<!-- ══ 表紙 ══ -->
+<header>
+  <div class="wrap hero-head">
+    <p class="kicker">三十路会 2027 ／ 2泊目の相談</p>
+    <h1>3月21日の夜は、<br><span class="t">天神</span>か、<span class="y">呼子</span>か。</h1>
+    <p class="lead">1泊目のらかんの湯（3/20）は予約しました。決めたいのは2泊目、3/21の夜だけです。いまの案は天神。安がイカ好きなので、佐賀の呼子に泊まる案も出ています。両方の2日間を並べたので、見比べて返事をください。</p>
+  </div>
+  <div class="halves">
+    <figure class="half tenjin">
+      <img src="img/w_nakasu.jpg" alt="那珂川に映る中洲のネオン">
+      <figcaption><small>案A ／ いまの案</small><b>天神</b><span>もつ鍋と中洲の夜</span></figcaption>
+    </figure>
+    <figure class="half yobuko">
+      <img src="img/g_ikizukuri.jpg" alt="身が透き通った呼子のイカの活き造り">
+      <figcaption><small>案B ／ 新しい案</small><b>呼子</b><span>イカの町と、イケス水風呂</span></figcaption>
+    </figure>
+  </div>
+</header>
+
+<!-- ══ 分かれ道 ══ -->
+<section class="wrap">
+  <p class="eyebrow">決めるのは、ここだけ</p>
+  <h2>武雄温泉から、道が二手に分かれます</h2>
+  <div class="fork">
+    <div class="root">
+      <span class="node-date">3/20（土）1泊目</span>
+      <span class="node-place">武雄温泉　御船山楽園ホテル <span class="chip ok">予約済み</span></span>
+      <span class="node-sub">らかんの湯・準貴賓室 紅梅・佐賀牛すき焼き会席。どちらの案でも同じです</span>
+    </div>
+    <div class="branches">
+      <div class="br a">
+        <span class="node-date">3/21（日）2泊目 ／ 案A</span>
+        <span class="node-place t">天神　カンデオホテルズ <span class="chip ok">予約済み</span></span>
+        <span class="node-sub">武雄温泉から特急で約1時間</span>
+        <span class="then">3/22（月）博多から福岡空港へ（近い）</span>
+      </div>
+      <div class="br b">
+        <span class="node-date">3/21（日）2泊目 ／ 案B</span>
+        <span class="node-place y">呼子　中尾甚六HOTEL <span class="chip no">未予約</span></span>
+        <span class="node-sub">武雄温泉からタクシーで約1時間（見込み）</span>
+        <span class="then">3/22（月）呼子から福岡空港へ（約2時間）</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══ 両案 ══ -->
+<section class="wrap">
+  <div class="plans">
+
+    <article class="plan a">
+      <span class="plan-letter">案A ／ いまの案</span>
+      <h2>天神</h2>
+      <p class="tagline">博多の夜を楽しむ案です。もつ鍋、屋台、ホテル最上階のサウナ。2023年に泊まったのと同じカンデオです。</p>
+      <div class="mosaic">
+        <figure class="wide"><img src="img/w_motsunabe.jpg" alt="博多もつ鍋" loading="lazy"><figcaption><b>もつ鍋　やま中 赤坂店</b>みそ味もつ鍋の発祥の店。1次会</figcaption></figure>
+        <figure><img src="img/w_yatai.jpg" alt="中洲の屋台" loading="lazy"><figcaption><b>中洲の屋台</b>2次会</figcaption></figure>
+        <figure><img src="img/c_tenjin.jpg" alt="カンデオホテルズのスカイスパ" loading="lazy"><figcaption><b>スカイスパ</b>最上階の露天風呂とサウナ</figcaption></figure>
+        <figure><img src="img/w_ramen.jpg" alt="博多ラーメン" loading="lazy"><figcaption><b>博多ラーメン</b>博多に着いてすぐ</figcaption></figure>
+        <figure><img src="img/w_nakasu.jpg" alt="中洲の夜景" loading="lazy"><figcaption><b>天神・中洲を自由行動</b>14時〜17時</figcaption></figure>
+      </div>
+      <div class="days">
+        <h3>3/21（日）</h3>
+        <ol class="tl">
+          <li class="same"><span class="tm">10:30</span><span class="what">チェックアウト（ここまで両案共通）</span></li>
+          <li><span class="tm">11:18</span><span class="what">特急リレーかもめで博多へ</span></li>
+          <li><span class="tm">12:30</span><span class="what">博多ラーメン</span></li>
+          <li><span class="tm">14:00</span><span class="what">自由行動（中洲・天神）</span></li>
+          <li><span class="tm">17:15</span><span class="what">カンデオに入ってスカイスパ</span></li>
+          <li class="key"><span class="tm">18:00</span><span class="what">もつ鍋 やま中</span></li>
+          <li class="key"><span class="tm">20:00</span><span class="what">中洲の屋台</span></li>
+          <li><span class="tm">21:30</span><span class="what">スカイスパで〆のサウナ</span></li>
+        </ol>
+        <h3>3/22（月）</h3>
+        <ol class="tl">
+          <li><span class="tm">7:00</span><span class="what">朝ウナ、朝食ビュッフェ</span></li>
+          <li class="key"><span class="tm">11:15</span><span class="what">長浜の市場ずし</span></li>
+          <li><span class="tm">13:00</span><span class="what">博多駅でお土産</span></li>
+          <li><span class="tm">16:10</span><span class="what">福岡空港から帰京</span></li>
+        </ol>
+      </div>
+      <p class="aside"><b>天神案でもイカは食べられます。</b>呼子のイカの活き造りを博多に広めた「河太郎」が博多駅のそば（博多口から徒歩約3分）にあり、呼子から運んだ活きイカを店の生簀で泳がせています。3/22の昼を長浜からここに差し替えることもできます（活き造り定食4,180円）。</p>
+    </article>
+
+    <article class="plan b">
+      <span class="plan-letter">案B ／ 新しい案</span>
+      <h2>呼子</h2>
+      <p class="tagline">イカの町に泊まる案です。昼に本場の活き造り、夜は今年できたサウナでイケス水風呂、朝は宿の目の前の朝市へ。全員はじめての場所です。</p>
+      <div class="mosaic">
+        <figure class="wide"><img src="img/j_kuchu.jpg" alt="呼子の海を見下ろす空中水風呂" loading="lazy"><figcaption><b>JIN6サウナ　空中水風呂</b>ガラス張りで宙に浮く水風呂。14〜16℃</figcaption></figure>
+        <figure><img src="img/j_ika_beer.jpg" alt="イカの活き造りとビール" loading="lazy"><figcaption><b>イカの活き造り</b>3/21は3種類がそろう時期</figcaption></figure>
+        <figure><img src="img/j_kujira.jpg" alt="鯨サウナ" loading="lazy"><figcaption><b>鯨サウナ</b>潮吹きのオートロウリュ</figcaption></figure>
+        <figure><img src="img/j_ikesu.jpg" alt="イケス水風呂" loading="lazy"><figcaption><b>イケス水風呂</b>イカの生簀を使った10℃以下のシングル</figcaption></figure>
+        <figure><img src="img/j_deck.jpg" alt="展望デッキの外気浴" loading="lazy"><figcaption><b>展望デッキで外気浴</b>フルフラットの椅子が22席</figcaption></figure>
+        <figure><img src="img/w_yb_market.jpg" alt="呼子朝市通りの入口" loading="lazy"><figcaption><b>呼子朝市</b>日本三大朝市。宿の目の前</figcaption></figure>
+        <figure><img src="img/w_nanatsugama.jpg" alt="七ツ釜の海食洞" loading="lazy"><figcaption><b>イカ丸で七ツ釜へ</b>イカの形の船で約40分</figcaption></figure>
+        <figure class="wide"><img src="img/h_kumamototei.jpg" alt="中尾甚六HOTEL 熊本別邸の和室" loading="lazy"><figcaption><b>中尾甚六HOTEL</b>朝市通りの古民家ホテル。4名で1部屋に泊まれる部屋あり</figcaption></figure>
+      </div>
+      <div class="days">
+        <h3>3/21（日）</h3>
+        <ol class="tl">
+          <li class="same"><span class="tm">10:30</span><span class="what">チェックアウト（ここまで両案共通）</span></li>
+          <li><span class="tm">10:45</span><span class="what">タクシーで呼子へ（約1時間）</span></li>
+          <li class="key"><span class="tm">12:00</span><span class="what">イカの活き造り</span></li>
+          <li><span class="tm">13:30</span><span class="what">イカ丸で七ツ釜クルーズ</span></li>
+          <li><span class="tm">15:00</span><span class="what">中尾甚六HOTELに入る</span></li>
+          <li class="key"><span class="tm">15:30</span><span class="what">JIN6サウナ</span></li>
+          <li><span class="tm">17:30</span><span class="what">夕食（呼子は夜が早い）</span></li>
+          <li class="key"><span class="tm">19:30</span><span class="what">JIN6・展望デッキで外気浴</span></li>
+        </ol>
+        <h3>3/22（月）</h3>
+        <ol class="tl">
+          <li class="key"><span class="tm">7:30</span><span class="what">呼子朝市（宿の目の前）</span></li>
+          <li><span class="tm">8:00</span><span class="what">朝食に海鮮丼</span></li>
+          <li><span class="tm">12:00</span><span class="what">呼子を出て唐津経由で福岡へ（約2時間）</span></li>
+          <li><span class="tm">16:10</span><span class="what">福岡空港から帰京</span></li>
+        </ol>
+      </div>
+      <p class="aside"><b>JIN6サウナは男女共用で、水着を着て入ります</b>（レンタル500円）。宿泊者は1,100円で22時まで何度でも入れます。サウナは鯨・イカ・唐津焼の窯をかたどった3室です。</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- ══ イカの季節 ══ -->
+<section class="season">
+  <div class="wrap">
+    <p class="eyebrow">呼子のイカ</p>
+    <h2>3月下旬は、3種類のイカがそろう</h2>
+    <p>呼子でイカの活き造りを始めた店「お魚処 玄海」は、季節ごとに違うイカを出しています。店の公式ページには、こう書いてあります。</p>
+    <p class="quote">3月下旬の天候のいい時期はこの3種類のイカを同時に食べる事が出来る唯一の時期です。<cite>お魚処 玄海 公式サイト「お料理」より</cite></p>
+
+    <div class="chartbox">
+      <svg viewBox="0 0 380 192" role="img" aria-label="玄海で出すイカの時期。アオリイカは11月下旬から4月中旬、甲イカは1月下旬から3月末、ヤリイカは3月下旬から12月初旬。3月21日から31日に3種類が重なる">
+        <rect x="0" y="0" width="380" height="192" fill="none"/>
+        <!-- 月の区切り（11月1日〜6月30日） -->
+        <line class="ch-grid" x1="100" y1="22" x2="100" y2="146"/>
+        <line class="ch-grid" x1="133.7" y1="22" x2="133.7" y2="146"/>
+        <line class="ch-grid" x1="168.6" y1="22" x2="168.6" y2="146"/>
+        <line class="ch-grid" x1="203.4" y1="22" x2="203.4" y2="146"/>
+        <line class="ch-grid" x1="234.9" y1="22" x2="234.9" y2="146"/>
+        <line class="ch-grid" x1="269.7" y1="22" x2="269.7" y2="146"/>
+        <line class="ch-grid" x1="303.4" y1="22" x2="303.4" y2="146"/>
+        <line class="ch-grid" x1="338.3" y1="22" x2="338.3" y2="146"/>
+        <line class="ch-grid" x1="372" y1="22" x2="372" y2="146"/>
+        <text class="ch-mon" x="116.9" y="162" text-anchor="middle">11月</text>
+        <text class="ch-mon" x="151.2" y="162" text-anchor="middle">12月</text>
+        <text class="ch-mon" x="186" y="162" text-anchor="middle">1月</text>
+        <text class="ch-mon" x="219.2" y="162" text-anchor="middle">2月</text>
+        <text class="ch-mon" x="252.3" y="162" text-anchor="middle">3月</text>
+        <text class="ch-mon" x="286.6" y="162" text-anchor="middle">4月</text>
+        <text class="ch-mon" x="320.9" y="162" text-anchor="middle">5月</text>
+        <text class="ch-mon" x="355.2" y="162" text-anchor="middle">6月</text>
+        <!-- 3種類がそろう期間（3/21〜3/31） -->
+        <rect class="ch-band" x="257.4" y="22" width="12.3" height="124"/>
+        <!-- アオリイカ 11月下旬〜4月中旬 -->
+        <text class="ch-name" x="92" y="45" text-anchor="end">アオリイカ</text>
+        <text class="ch-per" x="122.5" y="31">11月下旬〜4月中旬</text>
+        <rect class="ch-aori" x="122.5" y="35" width="163" height="13" rx="2"/>
+        <!-- 甲イカ 1月下旬〜3月末 -->
+        <text class="ch-name" x="92" y="87" text-anchor="end">甲イカ</text>
+        <text class="ch-per" x="252" y="73" text-anchor="end">1月下旬〜3月末</text>
+        <rect class="ch-kou" x="191" y="77" width="78.7" height="13" rx="2"/>
+        <!-- ヤリイカ 3月下旬〜12月初旬 -->
+        <text class="ch-name" x="92" y="129" text-anchor="end">ヤリイカ</text>
+        <text class="ch-per" x="372" y="115" text-anchor="end">3月下旬〜12月初旬 →</text>
+        <rect class="ch-yari" x="257.4" y="119" width="114.6" height="13" rx="2"/>
+        <!-- 3/21 -->
+        <line class="ch-day" x1="257.9" y1="14" x2="257.9" y2="146"/>
+        <text class="ch-daytx" x="253" y="15" text-anchor="end">3/21</text>
+        <text class="ch-note" x="263.5" y="182" text-anchor="middle">3/21〜3/31　3種類がそろう</text>
+      </svg>
+    </div>
+
+    <div class="squid3">
+      <div><b>アオリイカ</b><span>肉厚で高級。寒い時期だけのイカで、呼子では「みずイカ」と呼びます</span></div>
+      <div><b>甲イカ</b><span>サクサクした食感で、甘みが強い</span></div>
+      <div><b>ヤリイカ</b><span>透き通ってコリコリ。呼子の定番です（標準和名は剣先イカ）</span></div>
+    </div>
+    <p class="caveat">3/21はこの時期の入り口です。ヤリイカは出始めで、甲イカは終わり際。海が荒れて漁に出られない日が続くと、活きイカそのものが品切れになり、一夜干しや天ぷらに切り替わることがあります。</p>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══ 比較表 ══ -->
+<section class="wrap">
+  <p class="eyebrow">並べてみると</p>
+  <h2>何が違うのか</h2>
+  <div class="tblbox">
+    <table>
+      <thead>
+        <tr><th></th><th class="ca">案A 天神</th><th class="cb">案B 呼子</th></tr>
+      </thead>
+      <tbody>
+        <tr><th>イカ</th><td>博多の河太郎（呼子から運んだ活きイカ）</td><td>本場で3種類の食べ比べ（海が荒れると品切れ）</td></tr>
+        <tr><th>サウナ</th><td>カンデオのスカイスパ（最上階の露天）</td><td>JIN6（サウナ3室、10℃以下のイケス水風呂、空中水風呂）</td></tr>
+        <tr><th>夜</th><td>もつ鍋 → 屋台 → 〆のサウナ</td><td>17時台に夕食 → サウナ → 22時就寝</td></tr>
+        <tr><th>3/21の移動</th><td>特急で約1時間</td><td>タクシーで約1時間（公共交通なら2〜3時間）</td></tr>
+        <tr><th>3/22の移動</th><td>博多・天神から空港まで近い</td><td>呼子から空港まで約2時間</td></tr>
+        <tr><th>新しさ</th><td>天神・カンデオは2023年と同じ</td><td>全員はじめて</td></tr>
+        <tr><th>浅野</th><td>2泊目は自宅に帰れる</td><td>呼子に1泊する（費用が増える）</td></tr>
+        <tr><th>森本</th><td>天神で自由行動してから空港へ</td><td>呼子でイカを食べてから空港へ、もできる</td></tr>
+        <tr><th>宿の予約</th><td>予約済み（2部屋）</td><td>未予約（全11室）</td></tr>
+        <tr><th>宿のキャンセル料</th><td>前日から</td><td>14日前から</td></tr>
+        <tr><th>宿代（2泊目）</th><td class="num">1人24,200円（確定・朝食付）</td><td class="num">素泊まり2名1室29,700円〜（平日の最安。3/21の料金は未確認）</td></tr>
+        <tr><th>持ち物</th><td>とくになし</td><td>水着（サウナが男女共用のため）</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══ 気になるところ ══ -->
+<section class="wrap">
+  <p class="eyebrow">正直なところ</p>
+  <h2>それぞれの気になるところ</h2>
+  <div class="cons">
+    <div class="a">
+      <h3>案A 天神</h3>
+      <ul>
+        <li>宿もエリアも2023年と同じ</li>
+        <li>イカは博多で食べられるが、呼子の空気は味わえない</li>
+        <li>夜が遅くなりやすい（屋台のあと〆のサウナ）</li>
+      </ul>
+    </div>
+    <div class="b">
+      <h3>案B 呼子</h3>
+      <ul>
+        <li>3/21と3/22の移動が重い。タクシー代もかかる</li>
+        <li>夜が早い。呼子のイカの店は夕方で閉まるところが多く、2次会はほぼない</li>
+        <li>浅野が自宅に帰れず、宿代が1泊分増える</li>
+        <li>海が荒れると、イカがない日もある</li>
+        <li>宿のキャンセル料が14日前からかかる</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- ══ 決め手 ══ -->
+<section class="wrap">
+  <p class="eyebrow">決め手</p>
+  <h2>呼子にするなら、この2つが条件です</h2>
+  <ol class="keys">
+    <li><span class="n">1</span><div><b>武雄温泉から呼子まで、タクシーで割り切れるか</b><span>公共交通だと唐津で乗り換えて2〜3時間かかります。タクシーなら約1時間で、1台2万円前後の見込みです（要見積）。4〜5人で割ると1人4,000〜5,000円です。</span></div></li>
+    <li><span class="n">2</span><div><b>浅野が、天神の自宅に帰らず呼子に1泊してもいいか</b><span>天神案なら浅野は2泊目に自宅へ帰れます。呼子案では宿代が1泊分増えます。</span></div></li>
+  </ol>
+</section>
+
+<!-- ══ 返事 ══ -->
+<section class="wrap reply">
+  <p class="eyebrow">お願い</p>
+  <p class="big">LINEで「<span class="t">天神</span>」か「<span class="y">呼子</span>」と<br>返してください。</p>
+  <p class="lead">11月中に決めたいです。呼子の宿は全11室で、3連休の中日なので、決まったらすぐに押さえます。</p>
+  <p class="sig">幹事・髙山　／　2026年11月3日</p>
+</section>
+
+<hr class="rule">
+
+<section class="wrap credits">
+  <p><b>写真</b>　中洲の夜景・屋台＝Yoshikazu TAKADA（CC BY 2.0）／もつ鍋＝徳永涼（CC BY-SA 3.0）／博多ラーメン＝くろふね（CC BY-SA 4.0）／呼子朝市＝そらみみ（CC BY-SA 4.0）／七ツ釜＝Yuko Hara（CC BY 2.0）。以上はウィキメディア・コモンズ。スカイスパ＝カンデオホテルズ福岡天神 公式サイト／イカの活き造り＝お魚処 玄海 公式サイト／JIN6サウナ・中尾甚六HOTEL＝各公式サイト。</p>
+  <p><b>出典</b>　イカの時期と引用はお魚処 玄海 公式サイト。JIN6サウナの設備・料金、中尾甚六HOTELの客室・キャンセル規定は各公式・予約サイト（2026年11月時点）。タクシー代と所要時間は見込みです。</p>
+  <p>このページは三十路会のメンバー向けに作った私的なものです。</p>
+</section>
